@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>##2021##</title>
+    <style>
+        
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        body>div{
+            color: blue;
+            font-size: 20px;
+            float: left;
+            border: 1px solid
+
+        }
+        div>div{
+            border: 1px solid
+        }
+        .aa>div{
+            width: 30px;
+            height: 50px;
+            display: inline;
+            color: black;
+            text-align: right;
+
+        }
+        .aa{
+         width: 100px;
+         height: 200px;
+        }
+        img{
+            width:100px;
+            height: 100px;
+        }
+        .month{
+            width: 400px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <script>
+      // 오늘의 날짜비교해서 클래스를 먹여줘야함.
+      // 요일 만들어주어야 함.
+           for(var m=1; m<13; m++){
+            document.write("<div class=month >")
+            document.write("<div class='aa'><img src=\"../fff/달리기PNG/달리기-"+m+".png\">")
+            var date= new Date()
+            document.write("<2021년 "+m+"월>")
+            var nowm=date.getMonth()
+            var nowd=date.getDate()            
+            date.setMonth(m)
+            date.setDate(1) // 이것이 없으면. 짝수단위로 출력되는 문제 발생.
+            date.setDate(0)
+            var enddate= date.getDate()
+          
+            date.setDate(1)
+            console.log(m+"m월"+date.getDay()+"요일//말일"+enddate)
+            for(var dd= 0; dd<= date.getDay(); dd++){
+                // document.write("<div>"+"</div>")
+            }    
+            for(var dd= 1; dd<= enddate; dd++){
+                // document.write("<div>"+dd+"</div>")
+            }
+
+            document.write("</div>")
+           }
+             
+
+
+
+    </script>
+
+
+
+    
+</body>
+</html>
