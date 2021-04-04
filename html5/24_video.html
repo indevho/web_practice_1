@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>24_video</title>
+<style>
+	*{
+		margin:0;
+		padding:0;
+	}
+	.vv{
+		position:fixed;
+		min-width: 100%;
+		min-height: 100%;
+	}
+	
+	
+	html, body{
+	width:100%;
+	height: 100%;
+}
+
+.wrapper{
+	opacity:0.5;
+	z-index:2;
+	box-shadow:10px 10px 5px #000;
+	position:fixed;
+	
+	
+	width: 800px;
+	height: 700px;
+	background: #ff0;
+	/* margin: 0 auto; */
+	
+	left:50%;
+	top:50%;
+	margin-left: -400px;
+	margin-top:-350px;
+}
+header{ 
+	box-sizing:border-box;
+	width: 100%;
+	height: 70px;
+	border: 1px solid #ccc;
+	background: #fa5;
+}
+
+nav{ 
+	box-sizing:border-box;
+	width: 100%;
+	height: 100px;
+	border: 1px solid #ccc;
+	background: #0f0;
+}
+
+aside{
+	width: 300px;
+	height: 400px;
+	float:left;
+	background: #0ff;
+}
+
+section{
+	width: 500px;
+	height: 400px;
+	float:left;
+	background: #f0f;
+
+}
+
+section > article{
+	width: 474px;
+	height: 100px;
+	border: 3px solid #fff;
+	border-radius:20px;
+	margin:10px;
+	
+
+}
+
+footer{ 
+	box-sizing:border-box;
+	width: 100%;
+	height: 100px;
+	border: 1px solid #ccc;
+	background: #faf;
+	clear: both;
+}
+	
+
+</style>
+
+</head>
+<body>
+
+<video class="vv" src="../fff/zxcv.mp4" autoplay loop controls></video>
+
+<div class="wrapper">
+	<h1>23_semantic</h1>
+		<header>헤더다</header>
+		<nav>메인메뉴다</nav>
+		<aside>측면공간이다</aside>
+		<section>메인 공간이다
+			<article>내용1</article>
+			<article>내용2</article>
+			<article>내용3</article>
+		</section>
+		<footer>바닥이다</footer>
+</div>
+
+
+</body>
+</html>

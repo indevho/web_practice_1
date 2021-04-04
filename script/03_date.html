@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>03_date</title>
+</head>
+<body>
+<h1>03_date</h1>
+<script>
+	var now = new Date()
+	
+	document.write(now+"<br>")
+	document.write(now.getFullYear()+"<br>")
+	document.write(now.getMonth()+1+"<br>")
+	document.write(now.getDate()+"<br>")
+	document.write(now.getDay()+"<br>")
+	
+	document.write(now.getHours()+"<br>")
+	document.write(now.getMinutes()+"<br>")
+	document.write(now.getSeconds()+"<br>")
+	document.write(now.getMilliseconds()+"<br>")
+	
+	
+	now.setFullYear(1996);
+	now.setMonth(8-1);
+	now.setDate(23);
+	
+	now.setHours(14);
+	now.setMinutes(51);
+	now.setSeconds(19);
+	now.setMilliseconds(200);
+	document.write(now+"<br>")
+	
+	
+	now = new Date(2002,6-1,2)
+	now = new Date(2002,6-1,2, 7,8,9)
+	document.write(now+"<br>")
+	now = new Date("1994-08-07 16:23:45")
+	document.write(now+"<br>")
+	
+	document.write(now.getTime()+"<br>")
+	now.setTime(0)
+	document.write(now+"<br>")
+	
+</script>
+</body>
+</html>

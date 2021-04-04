@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>11_select_react</title>
+<style>
+div{
+	width: 100px;
+	height: 100px;
+	transition-duration: 0.5s;
+	overflow: hidden;
+}
+
+div > div{
+	margin-left: 150px;
+	width: 250px;
+}
+
+div:hover {
+	width: 500px;
+}
+</style>
+
+</head>
+<body>
+<h1>11_select_react</h1>
+<div style="background:#f00">
+	<div>빨간맛 
+		<a href="http://www.naver.com">네이버</a>
+		<a href="http://www.google.com">구글</a>
+		<a href="http://www.nate.com">네이트</a>
+		<a href="http://www.daum.net">다음</a>
+	</div>
+</div>
+<div style="background:#fa0"></div>
+<div style="background:#ff0"></div>
+<div style="background:#0f0"></div>
+<div style="background:#00f"></div>
+<div style="background:#218"></div>
+<div style="background:#f0f"></div>
+
+<style>
+	input{
+		background: #ff0;
+		width: 200px;
+		height: 30px;
+		border: 1px solid #ccc;
+		padding:5px;
+	}
+	
+	input:focus{
+		background: #0ff;
+	}
+
+	input[type=radio]{
+		width: 50px;
+		height: 50px;
+		
+	}
+	input[type=radio]:checked{
+		width: 100px;
+		height: 100px;
+		background: #f00;
+	}
+	
+	.kind2{
+		display: none;
+	}
+	.kind2+label>div{
+		width: 50px;
+		height: 50px;
+		/* background: #ccc; */
+		background-image:url("../fff/off.png");
+		background-size:50px 50px;
+		display: inline-block;
+		transition-duration: 0.0s;
+	}
+	
+	.kind2:checked+label>div{
+		
+		/* background: #f00; */
+		background-image:url("../fff/on.png");
+	}
+</style>
+
+<form action="">
+	<table>
+		<tr>
+			<td>어른디</td>
+			<td><input type="text" /></td>
+		</tr>
+		<tr>
+			<td>성별</td>
+			<td>
+				<input type="radio" name="gender"/>남
+				<input type="radio" name="gender" />여
+				<input type="radio" name="gender"/>IT
+			</td>
+		</tr>
+		<tr>
+			<td>구분</td>
+			<td>
+				<input type="radio" name="kind" id="stud"/>
+				<input type="radio" name="kind" id="scv"/>
+				<input type="radio" name="kind" id="king"/>
+				<label for="stud">학생</label>
+				<label for="scv">개발자</label>
+				<label for="king">기획자</label>
+			</td>
+		</tr>
+		<tr>
+			<td>구분2</td>
+			<td><input type="radio" class="kind2" name="kind2" id="stud2"/>
+				<label for="stud2"><div></div>학생2</label>
+				<input type="radio" class="kind2" name="kind2" id="scv2"/>
+				<label for="scv2"><div></div>개발자2</label>
+				<input type="radio" class="kind2" name="kind2" id="king2"/>
+				<label for="king2"><div></div>기획자2</label></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><input type="text" /></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><input type="text" /></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><input type="text" /></td>
+		</tr>
+	</table>
+</form>
+
+
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>12_select_attribute</title>
+<style>
+div{
+	width: 300px;
+	height: 50px;
+	margin: 20px;
+	border: 1px solid #777;
+}	
+div[ttt-data=abc]{ /* 정확하게 일치 : abc */
+	color: #f00;
+}
+div[ttt-data~=abc]{/* 단어형태로 포함 , 띄어쓰기로 구분 ::abc,  abc qwe */
+	font-weight: bolder;
+}
+div[ttt-data|=abc]{/* 단어형태로 포함 , -로 구분 ::abc,  abc-qwe */
+	font-style: italic;
+}
+div[ttt-data^=abc]{/* abc 로 시작 ,abc,  abc qwe,  abc-qwe , abcfewfwef */
+	text-align: center;
+}
+div[ttt-data$=abc]{/* abc 로 끝 ,abc,  zzzfewrfabc */
+	text-decoration: underline;
+}
+div[ttt-data*=abc]{/* abc 포함 ,abc,  abc qwe,  abc-qwe , abcfewfwef, zzzfewrfabc, zzzabcefewdf */
+	background: #ff0;
+}
+.aaa{
+
+	background: #f0f;
+}
+.bbb{
+
+	font-size: 50px;
+}
+
+.ccc{
+
+	text-align: right;
+}
+
+/* .aaa .bbb{
+
+	color: #0f0;
+} 
+.aaa bbb{
+
+	color: #0f0;
+}
+
+*/
+
+div[class="aaa bbb"]{ /* 정확하게 일치 : aaa bbb */
+	color: #0f0;
+}
+img{
+	width:100px;
+	height: 100px;
+ 	/*
+        jpg, jpeg : 테두리색 빨강
+        BMP, GIF : 테두리색 파랑
+        PNG : 테두리색 녹색
+    */
+}
+
+img[src$=jpg], img[src$=jpeg] {
+	border: 10px solid #f00; 
+}
+img[src$=bmp], img[src$=gif] {
+	border: 10px solid #00f; 
+}
+img[src$=png] {
+	border: 10px solid #0f0; 
+}
+</style>
+</head>
+<body>
+<h1>12_select_attribute</h1>
+
+<div ttt-data="abc">abc 이지롱</div>
+<div ttt-data="eee">eee 이지롱</div>
+<div ttt-data="abc qwe">abc qwe 이지롱</div>
+<div ttt-data="abc-qwe">abc-qwe 이지롱</div>
+<div ttt-data="abcfewfwef">abcfewfwef 이지롱</div>
+<div ttt-data="zzzfewrfabc">zzzfewrfabc 이지롱</div>
+<div ttt-data="zzzabcefewdf">zzzabcefewdf 이지롱</div>
+
+
+<div class="aaa bbb"> aaa bbb</div>
+<div class="aaa ccc"> aaa ccc</div>
+
+
+<img src="../fff/son_1.jpg" alt="" />
+<img src="../fff/son_1.jpeg" alt="" />
+<img src="../fff/son_1.png" alt="" />
+<img src="../fff/son_1.bmp" alt="" />
+<img src="../fff/son_1.gif" alt="" />
+</body>
+</html>
