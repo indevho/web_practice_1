@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Movings</title>
+    <style>
+    *{margin: 0;
+    padding: 0;}
+
+    #pan{
+        border: 2px solid;
+        margin: 0 auto;
+        height: 600px;
+        width: 600px;
+    }
+    img{    
+        height: 30px;
+        width: 30px;
+        position: relative;
+    }
+    #pan>div{
+        width: 30px;
+        height: 30px;
+    }
+
+
+
+
+
+
+        
+    </style>
+
+
+
+
+
+
+</head>
+<body>
+
+<h1 style="text-align: center;margin-bottom: 100px;">Game</h1>
+
+
+
+
+    <script> //   0x0 ~570x570
+    document.write('<div id="pan">');
+    var arr=[{},{},{}]
+    for(i=0;i<4;i++){ // 오브젝트 생성
+        // arr[i] = Object.create();
+        arr[i].name='div'+i;
+        arr[i].left= Math.floor(Math.random()*570+1)
+        arr[i].top=Math.floor(Math.random()*570+1)
+        arr[i].content=Math.random(5)
+        arr[i].xsp= Math.floor(Math.random()*2+1)
+        arr[i].ysp=Math.floor(Math.random()*2+1)        
+        arr[i].url='fff/img'+(i+1)+'.png'
+        console.log(arr[i])
+    }
+
+    function move(){
+        
+
+    }
+        
+
+
+
+    
+
+
+    document.write('</div>');
+
+    setInterval(move, 20)
+
+    </script>
+</body>
+</html>
