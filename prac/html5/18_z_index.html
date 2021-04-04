@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>18_z_index</title>
+<style>
+div{
+	position: absolute;
+	width: 100px;
+	height: 100px;
+}
+#aaa{
+	left:170px;
+	top:170px;
+	background: #ff0;
+	z-index: 1	
+}
+#bbb {
+	left:150px;
+	top:150px;
+	background: #f0f;
+	z-index: 1		
+}
+#ccc {
+	left:120px;
+	top:120px;
+	background: #0ff;
+	z-index: 1	
+}
+</style>
+</head>
+<body>
+<h1>18_z_index</h1>
+
+<div id="bbb">box2</div>
+<div id="ccc">box3</div>
+<div id="aaa">box1</div>
+</body>
+</html>

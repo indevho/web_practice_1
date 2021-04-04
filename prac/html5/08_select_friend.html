@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>08_select_friend</title>
+<style>
+*{
+	margin:0;
+	paddding: 0;
+}
+h2 ~ h3{ /*h2 다음에 나오는 h3 모두*/
+	background: #ff0;
+}
+
+h2 + h3 + h3{ /*h2 다음에 나오는 h3*/
+	font-style: italic;
+}
+
+h2 + h3 + h3 + h3 + h3{ /*h2 다음에 4번째 나오는 h3*/
+	color: #f00;
+}
+
+
+</style>
+</head>
+<body>
+<h1>동위 선택자</h1>
+
+<h3>h3 ...11</h3>
+<h3>h3 ...12</h3>
+<h3>h3 ...13</h3>
+<h3>h3 ...14</h3>
+
+<h2>h2 ...11</h2>
+<h2>h2 ...12</h2>
+
+<h3>h3 ...21</h3>
+<h3>h3 ...22</h3>
+<h3>h3 ...23</h3>
+<h3>h3 ...24</h3>
+
+<h2>h2 ...21</h2>
+
+<h3>h3 ...31</h3>
+<h3>h3 ...32</h3>
+
+<h4>h4 ...21</h4>
+
+<h3>h3 ...41</h3>
+<h3>h3 ...42</h3>
+<h3>h3 ...43</h3>
+<h3>h3 ...44</h3>
+</body>
+</html>

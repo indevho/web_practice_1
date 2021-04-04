@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>14_shadow_inset</title>
+<style>
+h1{
+	clear: both;
+}
+div > div{
+	width:100px;
+	height:100px;
+	margin: 30px;
+	background: #ff0;
+	float: left;
+}
+div:nth-of-type(1) > div:nth-child(1) {
+            /*  좌   위  퍼짐  색 */
+	box-shadow: 5px 5px 10px #333;
+}
+
+div:nth-of-type(1) > div:nth-child(2) {
+            /*  좌   위  퍼짐  색 */
+	box-shadow: 20px 5px 10px #333;
+}
+
+div:nth-of-type(1) > div:nth-child(3) {
+            /*  좌   위  퍼짐  색 */
+	box-shadow: 5px 15px 10px #333;
+}
+
+div:nth-of-type(1) > div:nth-child(4) {
+            /*  좌   위  퍼짐  색 */
+	box-shadow: 5px 5px 5px #000;
+}
+
+div:nth-of-type(1) > div:nth-child(5) {
+            /*  좌   위  퍼짐  색 */
+	box-shadow: 20px 20px 30px #000;
+}
+
+div:nth-of-type(1) > div:nth-child(6) {
+            /*  좌   위  퍼짐  색 */
+	/* box-shadow: 20px 0px 0px #f00;
+	box-shadow: 0px 20px 0px #fa0; */
+	box-shadow: 20px 0px 0px #f00,
+				0px 20px 0px #fa0,
+				-20px 0px 0px #0f0,
+				0px -20px 0px #00f;
+	
+}
+
+div:nth-of-type(1) > div:nth-child(7) {
+            /* 
+    			빨   주    노
+    			검   흰    초        
+                보   남    파
+            */
+    background:#fff;
+	box-shadow: 20px 0px 0px #0f0,
+				0px -20px 0px #fa0,
+				-20px 0px 0px #000,
+				0px 20px 0px #31a,
+				-20px -20px 0px #f00,
+				20px -20px 0px #ff0,
+				20px 20px 0px #00f,
+				-20px 20px 0px #f0f;
+	
+}
+
+
+div:nth-of-type(2) > div:nth-child(1) {
+            /*  좌   위  퍼짐  색 */
+	box-shadow:inset 5px 5px 10px #333;
+}
+
+div:nth-of-type(2) > div:nth-child(2) {
+            /*  좌   위  퍼짐  색 */
+	box-shadow:inset 20px 5px 10px #333;
+}
+
+div:nth-of-type(2) > div:nth-child(3) {
+            /*  좌   위  퍼짐  색 */
+	box-shadow:inset 5px 15px 10px #333;
+}
+
+div:nth-of-type(2) > div:nth-child(4) {
+            /*  좌   위  퍼짐  색 */
+	box-shadow:inset 5px 5px 5px #000;
+}
+
+div:nth-of-type(2) > div:nth-child(5) {
+            /*  좌   위  퍼짐  색 */
+	box-shadow:inset 20px 20px 30px #000;
+}
+
+div:nth-of-type(2) > div:nth-child(6) {
+            /*  좌   위  퍼짐  색 */
+
+	box-shadow: inset 20px 0px 0px #f00,
+				inset 0px 20px 0px #fa0,
+				inset -20px 0px 0px #0f0,
+				inset 0px -20px 0px #00f;
+	
+}
+div:nth-of-type(3) > div:nth-child(1) {
+    border: 10px solid #000;
+}
+
+div:nth-of-type(3) > div:nth-child(2) {
+	box-sizing:border-box;
+    border: 10px solid #000;
+}
+div:nth-of-type(3) > div:nth-child(2) {
+	box-sizing:border-box;
+    border: 10px solid #000;
+}
+div:nth-of-type(3) > div:nth-child(2) {
+	box-sizing:border-box;
+    border: 10px solid #000;
+}
+div:nth-of-type(3) > div:nth-child(3) {
+	box-sizing:border-box;
+	padding: 20px;
+    border: 10px solid #000;
+}
+div:nth-of-type(3) > div:nth-child(4) {
+	
+	padding: 20px;
+    border: 10px solid #000;
+}
+
+div:nth-of-type(3) > div:nth-child(5) {
+	box-sizing:border-box;
+	padding: 20px;
+    border: 10px solid #000;
+    margin: 50px;  /*box-sizing 적용 대상이 아님*/
+}
+
+div:nth-of-type(3) > div:nth-child(6) {
+	
+    /*border: 0px 50px 100px 20px solid #000;  에러
+    
+    border: 0px solid #000,
+    		50px solid #000,
+    		100px solid #000,
+    		20px solid #000;   에러 */
+    		
+    box-sizing:border-box;
+    
+    border-left: 5px solid #f00;
+    border-top: 50px solid #0f0;
+	border-right: 10px solid #00f;
+	border-bottom: 20px solid #f0f;
+    
+}
+</style>
+</head>
+<body>
+<h1>shadow</h1>
+<div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	
+</div>
+<h1>inset</h1>
+<div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+</div>
+<h1>box-sizing</h1>
+<div>
+	<div>box1</div>
+	<div>box2</div>
+	<div>box3</div>
+	<div>box4</div>
+	<div>box5</div>
+	<div>box6</div>
+</div>
+
+</body>
+</html>

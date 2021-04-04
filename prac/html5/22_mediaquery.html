@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" 
+content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Dancing+Script&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+<title>22_mediaquery</title>
+<style>
+
+	.tot{
+			width: 600px;
+			height: 500px;
+			border: 1px solid #ccc;
+			padding:30px;
+			margin: auto;
+			background: #ff0;
+			
+		}
+		
+		.tot > div{
+			box-sizing:border-box;
+			width: 250px;
+			height: 200px;
+			border: 1px solid #ccc;
+			padding:30px;
+			margin:25px;
+			float:left;
+			background: #0ff;
+			color:#f00;
+			font-family: 'Abril Fatface', cursive;
+		}
+
+	@media screen and (max-width:480px){
+	
+		.tot{
+			width: 300px;
+			height: 750px;
+			
+			background: #f0f;
+			
+		}
+		.tot > div{
+			color:#0a3;
+			font-family: 'Dancing Script', cursive;
+
+		}
+	
+	}
+	
+	@media screen and (min-width:1200px){
+	
+		.tot{
+			width: 900px;
+			height: 250px;
+			
+			background: #0f0;
+			
+		}
+		
+		.tot > div{
+			color:#00f;
+			
+			font-family: 'Nanum Pen Script', cursive;
+		}
+	
+	}
+
+	
+	
+
+</style>
+</head>
+<body>
+<h1>22_mediaquery</h1>
+
+<div class="tot">
+	<div>box1</div>
+	<div>box2</div>
+	<div>box3</div>
+</div>
+</body>
+</html>
