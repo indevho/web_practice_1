@@ -47,23 +47,62 @@
 
     <script> //   0x0 ~570x570
     document.write('<div id="pan">');
-    var arr=[{},{},{}]
-    for(i=0;i<4;i++){ // 오브젝트 생성
+    var arr=[]
+
+    for(i=0;i<3;i++){ // 오브젝트 생성
         // arr[i] = Object.create();
-        arr[i].name='div'+i;
-        arr[i].left= Math.floor(Math.random()*570+1)
-        arr[i].top=Math.floor(Math.random()*570+1)
-        arr[i].content=Math.random(5)
-        arr[i].xsp= Math.floor(Math.random()*2+1)
-        arr[i].ysp=Math.floor(Math.random()*2+1)        
-        arr[i].url='fff/img'+(i+1)+'.png'
+        var ttt="div"+(i+1);
+
+        var aa= {        
+        name:ttt,
+        left: Math.floor(Math.random()*570+1),
+        top:Math.floor(Math.random()*565+1),
+        content:Math.random()*5+1,
+        xsp: Math.floor(Math.random()*2+1),
+        yspL:Math.floor(Math.random()*2+1),     
+        url:'../fff/img'+(i+1)+'.png'
+ 
+        };
+        arr.push(aa)
+        // arr[i].name='';
+        // arr[i].left= 0
+        // arr[i].top=0
+        // arr[i].content=0
+        // arr[i].xsp= 0
+        // arr[i].ysp=0        
+        // arr[i].url=''
+        // var  ttt="div"+(i+1)
+        // arr[i].name=ttt;
+        // arr[i].left= Math.floor(Math.random()*570+1)
+        // arr[i].top=Math.floor(Math.random()*570+1)
+        // arr[i].content=Math.random()*5+1
+        // arr[i].xsp= Math.floor(Math.random()*2+1)
+        // arr[i].ysp=Math.floor(Math.random()*2+1)        
+        // arr[i].url='fff/img'+(i+1)+'.png'
         console.log(arr[i])
     }
+    console.log("===생성끝")
 
-    function move(){
-        
-
-    }
+    function gg(){
+        for(i=0;i<3;i++) {
+                if( ((arr[i].left+arr[i].xsp)<0) || ((arr[i].left+arr[i].xsp)>570) ){
+                    arr[i].xsp *= -1
+                }
+                if((arr[i].top+arr[i].y)<0 || (arr[i].top+arr[i].y)>570 ){
+                    arr[i].ysp *= -1
+                }
+                arr[i].left = (arr[i].left+arr[i].xsp)
+                arr[i].top = (arr[i].top+arr[i].ysp)
+            }
+            console.log(arr[1])
+        }
+        console.log(arr[1].name)
+        for (var i = 0; i < 3; i++) {
+            document.write('<div id = "'+arr[i].name+'"><img alt="" src="'+ arr[i].url+'"></div>')
+            var mm = document.getElementById(arr[i].name)
+            console.log(arr[i])
+           
+        }
         
 
 
@@ -73,7 +112,7 @@
 
     document.write('</div>');
 
-    setInterval(move, 20)
+    setInterval(gg, 2000)
 
     </script>
 </body>
