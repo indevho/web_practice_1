@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>16_dom_crud.html</title>
+    <style>
+
+        #arr{
+            border : 1px solid #000;
+            padding: 100px;
+            margin: 100px;
+        }
+
+        #arr >div{
+            border : 1px solid #000;
+            padding: 30px;
+            margin: 30px;
+            width: 300px;
+            height: 30px;
+            line-height: 30px;
+            background: yellow;
+            display: flex;
+            justify-content: space-between;
+        }
+        #arr >div >.txt_view{  
+/* 안해도 될듯! */
+
+        }
+    </style>
+    <script>
+        var no =0;
+        window.onload = function () {
+            zxcv= document.getElementById("input_01")
+            arr=  document.getElementById("arr")
+
+
+        }
+        function aaa(){
+            // alert("aaa 실행")
+            
+
+            console.log(zxcv.value)
+            
+            addDiv(zxcv.value)
+            zxcv.value=""
+            
+        }
+
+        function addDiv(ttt){
+            //var 꼭 붙일 것!
+            
+            var new_item =document.createElement("div") //객체하나 만들어버리기.
+            var txt_id = "txt"+ no
+            var new_id = "box"+ no++  // 00  11 22 33 ...
+            new_item.setAttribute("id",new_id)
+
+            var txt_item= document.createElement("input")
+            // txt_item.innerHTML=ttt // 이 아니라
+            txt_item.value=ttt
+            txt_item.readOnly=true
+            //이친구를 수정할떄 물러와야것는데~`~?
+            txt_item.setAttribute("id",txt_id )
+            txt_item.setAttribute("class","txt_view")
+
+            // new_item.innerHTML=ttt
+            //div 라는  객체 
+
+            new_item.appendChild(txt_item)
+            var btn_item= document.createElement("input")
+            btn_item.setAttribute("type","button")
+            btn_item.setAttribute("del_id",new_id)
+            btn_item.setAttribute("onclick", "deleteDiv('"+new_id+"')") // 여기서 잘만 쳐주면 , delid 몰라두댐.
+            //키포인트!! 작은따옴표를 먹여서 + 이거 문자라고 인식을 시켜준다!!
+            // new id 먹여도도,고 
+            // new item 먹여도 되는 방법이 있다!!
+
+            var btn_item2= document.createElement("input")
+            btn_item2.setAttribute("type","button")
+            btn_item2.setAttribute("id",new_id+'_edit')
+            btn_item2.setAttribute("onclick", "ready_edit('"+new_id+"')") // 여기서 잘만 쳐주면 , delid 몰라두댐.
+
+
+
+            btn_item.value="삭제"
+            btn_item2.value="수정"
+            new_item.appendChild(btn_item)
+            new_item.appendChild(btn_item2)
+            arr.appendChild(new_item)
+
+        }
+
+        function deleteDiv(ttt){
+            console.log("delete실행:"+ttt)
+            var del_thing= document.getElementById(ttt)
+            arr.removeChild(del_thing)
+            //부모 주어로 자식 kill  리무브차일드! 함수이름이 좀 마음이 아픈데. 삭제자식.            
+        }
+
+        function ready_edit(ttt){
+            console.log("edit실행:"+ttt)
+            var edit_thing= document.getElementById(ttt)
+            console.log(edit_thing)
+            
+
+            //<input type="button" value="추가"  onclick="aaa()"  />
+            // 인풋상자에 넣어두고. 
+            
+        }
+        function do_edit(){
+
+        }
+
+
+    </script>
+</head>
+<body>
+    <h1>16_dom_crud.html</h1>
+    
+
+<form action="">
+
+    <label for="">
+
+        <input type="text" id="input_01">
+
+    </label>
+    <input type="button" value="추가"  onclick="aaa()"  />
+</form>
+
+<div id="arr"> </div>
+
+
+</body>
+</html>
