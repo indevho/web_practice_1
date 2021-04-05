@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>02_for</title>
+<style>
+.big{
+	clear: both;
+}
+
+.big > div{
+	width:50px;
+	height: 50px;
+	background: #ff0;
+	float: left;
+	margin: 5px;
+	border: 1px solid #ccc;
+
+}
+
+/*
+.big:nth-of-type(2n) > div{
+	
+	background: #f00;
+	
+
+}
+
+.big > div:last-of-type, .big > div:nth-last-of-type(3){
+	
+	border: 3px solid #000;
+
+}
+*/
+
+.big > .bbb{
+
+	border: 3px solid #000;
+}
+
+
+.big > .ccc{
+
+	background: #f00;
+}
+
+</style>
+</head>
+<body>
+<h1>02_for</h1>
+<script>
+
+	var tot = 0
+	for (var i = 0; i < 10; i++) {
+		tot += i
+		document.write(i+" : "+tot+"<br>")
+	}
+	document.write("합계 : "+tot+"<br>")
+	
+	document.write("<h2>1번</h2>")
+	for (var line = 0; line < 5; line++) {
+		
+		for (var star = 0; star <=line; star++) {
+			document.write("*")
+		}
+		
+		document.write("<br>")
+	}
+	
+	
+	document.write("<h2>2번</h2>")
+	for (var line = 0; line < 5; line++) {
+		
+		for (var star = line; star <5; star++) {
+			document.write("*")
+		}
+		
+		document.write("<br>")
+	}
+	
+	
+	document.write("<h2>1번</h2>")
+	for (var line = 0; line < 5; line++) {
+		
+		document.write("<div class='big'>")
+		var sss = ''
+		
+		if(line%2){
+			//sss = "style='background: #f00;'"
+			
+			sss = "ccc"
+		}
+		//console.log(line, line%2 , sss)	
+		
+		
+		
+			
+		for (var star = 0; star <=line; star++) {
+			
+			var sub = '';
+			
+			if(star == line || star == line-2 )
+				sub = sss+" bbb"
+				
+			if(sub!=''){
+				sub = "class = '"+sub+"'";
+			}
+			
+			document.write("<div "+sub+">"+star+"</div>")
+		}
+		
+		document.write("</div>")
+		
+	}
+	
+	
+	
+</script>
+</body>
+</html>

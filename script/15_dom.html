@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>15_dom.html</title>
+    <style>
+        #con {
+            border: 2px dashed #f00;
+            padding: 50px;
+            margin: 50px;
+
+
+        }
+        .zxc{
+            background: #ff0;
+        }
+    </style>
+    <script>
+
+        window.onload = function () {
+
+            //     var con= document.getElementById("con")
+            // con.innerHTML= "첫번째 로그"
+
+            function log(str) {
+                var con = document.getElementById("con")
+                con.innerHTML += str + "<br>"
+            }
+            // log("처어어엇 번째 로그")
+
+            // dom 에 접근하기
+            log("=====document.documentElement=====")
+            var root = document.documentElement
+            log(root.tagName)
+            // 맨 겉에 있는 나?  HTML이야.
+            console.log(root)
+            //다나온다.
+
+            var aa = document.getElementById("a")
+            log("a.겟어트리뷰트:" + a.getAttribute("qwer"))
+            // var a2= root.getElementById("a")
+            // log("a2.겟어트리뷰드."+  a2.getAttribute("qwer")) //안됩니다.
+            /*ncaught TypeError: root.getElementById is not a function
+    at window.onload (15_dom.html:41)*/
+            //루트 아래의 것들 가져오고싶은거야.
+
+            // log(root.innerHTML) // 속에서 html 또발생.
+            // log(root.childNodes)
+            var rootChild= root.childNodes
+            console.log(rootChild) //NodeList(3) [head, text, body]
+            // 0: head
+            // 1: text
+            // 2: body 로 출력.
+            for(var i in rootChild){
+                // log(rootChild[i]) //너무 양이 많구나.
+                log(rootChild[i].tagName) //뭔가가 있긴한데.. 디파인이 안돼ㅣ어있다.
+                //1단계 아래의 놈들만 알고 있는 것.
+            }
+
+            log("=====document.getElementsByTagName=====")
+            var div= document.getElementsByTagName("div")
+            console.log(div)
+            // for(var i in div)
+            for (let i = 0; i < div.length; i++) {
+                // log(i+":"+div[i].innerHTML)  //너무많다.
+                log(i+":"+div[i].getAttribute("qwer"))
+            }
+
+            log("===== document.getElementsByClassName=====")
+
+            var zxc = document.getElementsByClassName("zxc")
+            
+            //     for(var i=0; zxc.length; i++){
+            //     // log(i+":"+zxc[i].tagName);
+            //     // zxc[i].innerHTML +=" 하-이";
+            // } 
+                //이상하게 span 에는 붙기는 붙는데 +=의 특성상. 각자 마지막 부분에 달라붙는다. 즉 </p>뒤에 붙음..
+                //숨은게 아니다.
+
+                log("===== document.getElement!Byid=====")
+                    var c= document.getElementById("c")
+
+                log(c.tagname)
+
+                var cc= c.childNodes
+
+                console.log(cc)
+                var subDiv = cc[1].getElementsByTagName("div")
+                console.log(subDiv)
+                log("subDiv.innerHTEML::"+subDiv[0].innerHTML)
+
+
+
+        }
+    </script>
+</head>
+<body>
+    <h1>15_dom.html</h1>
+
+    <span id="a" qwer="123"  class="zxc">
+        span1
+        <p>
+            문단1
+
+        <div id="b" qwer="456"  class="zxc">div1</div>
+        <div>div2</div>
+
+        </p>
+    </span>
+
+    <div qwer="333"  id="c">div3
+        <span>
+            span2
+            <div  qwer="444"  class="zxc">div4</div>
+        </span>
+
+    </div>
+
+    <p  class="zxc"> 문단 2</p>
+
+    <div id="con"  qwer="55번째"></div>
+
+
+</body>
+</html>
