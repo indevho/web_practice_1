@@ -17,9 +17,9 @@
     img{    
         height: 30px;
         width: 30px;
-        position: relative;
     }
     #pan>div{
+        position: relative;
         width: 30px;
         height: 30px;
     }
@@ -49,58 +49,54 @@
     document.write('<div id="pan">');
     var arr=[]
 
-    for(i=0;i<3;i++){ // 오브젝트 생성
+    for(i=0;i<2;i++){ // 오브젝트 생성
         // arr[i] = Object.create();
         var ttt="div"+(i+1);
 
         var aa= {        
         name:ttt,
         left: Math.floor(Math.random()*570+1),
-        top:Math.floor(Math.random()*565+1),
+        top: Math.floor(Math.random()*570+1),
+        // top: 40,
         content:Math.random()*5+1,
-        xsp: Math.floor(Math.random()*2+1),
-        yspL:Math.floor(Math.random()*2+1),     
+        xsp: Math.floor(Math.random()*10+1),
+        ysp:Math.floor(Math.random()*10+1),     
         url:'../fff/img'+(i+1)+'.png'
  
         };
         arr.push(aa)
-        // arr[i].name='';
-        // arr[i].left= 0
-        // arr[i].top=0
-        // arr[i].content=0
-        // arr[i].xsp= 0
-        // arr[i].ysp=0        
-        // arr[i].url=''
-        // var  ttt="div"+(i+1)
-        // arr[i].name=ttt;
-        // arr[i].left= Math.floor(Math.random()*570+1)
-        // arr[i].top=Math.floor(Math.random()*570+1)
-        // arr[i].content=Math.random()*5+1
-        // arr[i].xsp= Math.floor(Math.random()*2+1)
-        // arr[i].ysp=Math.floor(Math.random()*2+1)        
-        // arr[i].url='fff/img'+(i+1)+'.png'
-        console.log(arr[i])
     }
     console.log("===생성끝")
+        console.log(arr.length)
+        console.log(arr[0].top)
 
     function gg(){
-        for(i=0;i<3;i++) {
-                if( ((arr[i].left+arr[i].xsp)<0) || ((arr[i].left+arr[i].xsp)>570) ){
+        for(i=0;i<arr.length;i++) {
+                if( ((arr[i].left+arr[i].xsp)<7) || ((arr[i].left+arr[i].xsp)>563) ){
                     arr[i].xsp *= -1
                 }
-                if((arr[i].top+arr[i].y)<0 || (arr[i].top+arr[i].y)>570 ){
+                if(((arr[i].top+arr[i].ysp)<7) || ((arr[i].top+arr[i].ysp)>563) ){
                     arr[i].ysp *= -1
                 }
-                arr[i].left = (arr[i].left+arr[i].xsp)
-                arr[i].top = (arr[i].top+arr[i].ysp)
+                arr[i].left = arr[i].left+ arr[i].xsp
+                arr[i].top = arr[i].top+ arr[i].ysp
+                var mm = document.getElementById(arr[i].name)
+                mm.style.left= arr[i].left+"px"
+                mm.style.top= arr[i].top+"px"
+                console.log(arr[i])
+
             }
-            console.log(arr[1])
         }
-        console.log(arr[1].name)
-        for (var i = 0; i < 3; i++) {
+        // console.log(arr[1].name)
+        for (var i = 0; i < arr.length; i++) {
             document.write('<div id = "'+arr[i].name+'"><img alt="" src="'+ arr[i].url+'"></div>')
             var mm = document.getElementById(arr[i].name)
+                mm.style.left= arr[i].left+"px"
+                mm.style.top= arr[i].top+"px"
+            
             console.log(arr[i])
+            console.log(mm)
+            // console.log(arr[i])
            
         }
         
@@ -112,7 +108,7 @@
 
     document.write('</div>');
 
-    setInterval(gg, 2000)
+    setInterval(gg, 20)
 
     </script>
 </body>
