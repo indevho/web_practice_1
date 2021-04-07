@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>06_diary</title>
+<style>
+img{
+	 width:350px;
+}
+h1{
+	text-align: center;
+}
+.big {
+	width:1056px;
+	margin:0 auto;
+	
+}
+
+.big > div {
+	width:350px;
+	height:800px;
+	float: left;
+	border: 1px solid #ccc;
+}
+.big > div > div{
+	width:350px;
+	
+}
+
+
+.big > div > div > div{
+	text-align: right;
+	width:20px;
+	height: 20px;
+	line-height: 20px;
+	padding: 10px;
+	margin:4px;
+	border:1px solid #ccc;
+	float: left;
+}
+
+.big > div > div:first-of-type > div{
+	text-align: center;
+	background: #000;
+	color: #fff;
+}
+.big > div > div:first-of-type > div:first-child{
+	
+	background: #f00;
+	
+}
+.big > div > div:first-of-type > div:last-child{	
+	background: #00f;
+	
+}
+.big > div > div:last-child > div:nth-child(7n){
+	color: #00f;
+}
+.big > div > div:last-child > div:nth-child(7n+1){
+	color: #f00;
+}
+.big > div > div > .today{
+	background: #ff0;
+	font-weight: bolder;
+}
+</style>
+</head>
+<body>
+
+
+
+<script>
+	var today = new Date()
+	console.log(today)
+	const yy = today.getFullYear()
+	const nowMM = today.getMonth()
+	const nowDD = today.getDate()
+	
+	const weekTitle = "일월화수목금토"
+	var weekDiv = "<div>"
+
+	var ttt = "<div class='big'><h1>"+yy+"년</h1>"
+	for(ww in weekTitle){
+		weekDiv+="<div>"+weekTitle.charAt(ww)+"</div>"
+		
+	}
+	weekDiv+="</div>"
+
+	
+
+	for(var mm = 0; mm < 12 ; mm++){
+		
+		today = new Date(yy,mm+1,0)
+		var last = today.getDate()
+		today.setDate(1)
+		var first = today.getDay()
+		console.log(first)
+
+		ttt += "<div>"
+		ttt += '<img src="../fff/diary_img/mm_'+(mm+1)+'.png" />'
+		
+		ttt += "<h1>"+yy+"년"+(mm+1)+"월</h1>"+weekDiv+"<div>"
+		
+		
+		for(var i = 0 ; i<first ; i++){
+				
+			ttt+="<div></div>"
+		}
+		for(var i = 1 ; i<=last ; i++){
+			
+			var todayClass = " "
+			
+			if(mm == nowMM && i == nowDD)
+				todayClass = " class = 'today'"
+				
+			ttt+="<div "+todayClass+">"+i+"</div>"
+		}
+		ttt+="</div></div>"
+		
+		
+	}
+	ttt+="</div>"
+	document.write(ttt)
+</script>
+
+	
+	
+
+</body>
+</html>

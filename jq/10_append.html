@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>10_append</title>
+<style>
+#box{
+   width:300px;
+   height:400px;
+   border: 1px solid #000;   
+   background: #0ff;
+}
+span {
+
+   width:200px;
+   height:30px;
+   border: 1px solid #000;   
+   background: #ff0;
+   display:block;
+
+}
+</style>
+<script src="../my_js/jquery-3.6.0.js"></script>
+<script src="../my_js/jquery-ui.min.js"></script>
+<script>
+$(function(){
+   $("#box").append("asdfwegew")
+   $("#box").append("<span>append</span>")//  ~에다ㅣ 가 ~~를 붙여 뒤에.
+   $("#box").prepend("<span>prepend</span>")//~에다 ~를 붙여맨앞에.
+   $("<span>appendTo</span>").appendTo("#box") //  ~를 박스에 붙여 뒤에
+   $("<span>prependTo</span>").prependTo("#box")
+   
+   $("#box").after("<span>after</span>")
+   $("#box").before("<span>before</span>")
+   $("<span>insertAfter</span>").insertAfter("#box")
+   $("<span>insertBefore</span>").insertBefore("#box")
+   
+   var aaa = $("<span>aaa</span>")
+   
+   $("#box").append(aaa)
+   
+   $("#box").prepend(aaa)  //이미 추가 된 요소를 다시 추가하면 이동
+   
+   var bbb = aaa.clone()   //추가하려는 요소 복제
+   $("#box").prepend(bbb)  //복제한 요소 추가
+   
+   bbb.remove()        //삭제
+   
+   
+   
+})
+
+
+</script>
+</head>
+<body>
+<h1>10_append</h1>
+
+<div id="box"></div>
+</body>
+</html>

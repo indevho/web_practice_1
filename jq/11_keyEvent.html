@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>11_keyEvent</title>
+    <style>
+        #cons{
+            width: 200px;
+            margin: 20px;
+            padding: 20px;
+
+        }
+
+    </style>
+    <script src="../my_js/jquery-3.6.0.js"></script>
+    <script src="../my_js/jquery-ui.min.js"></script>
+    <script>
+
+        $(function(){
+
+                        // $("#ppp").keydown(function(e){ //한글입력인지.
+                        //     console.log(e.keyCode)
+                        //     console.log(e.charCode)
+                        //     console.log(e.key)
+                        //     console.log(e.metaKey)
+                        //     console.log(e.returnValue)
+                            
+                        // })  //37 38 39 40 좌 상 우 하.
+                        // $("#ppp").keypress(function(e){  //한글무시 del 무시
+                        //     console.log(e.keyCode)
+                        //     console.log(e.charCode)
+                        //     console.log(e.key)
+                        //     console.log(e.metaKey)
+                        //     console.log(e.returnValue)
+                            
+                        // })
+                        // $("#ppp").keyup(function(e){  //키보드 뗼 때 인지.
+                        //     console.log(e.keyCode)
+                        //     console.log(e.charCode)
+                        //     console.log(e.key)
+                        //     console.log(e.metaKey)
+                        //     console.log(e.returnValue)
+                        //     // 게임일 떄는 문제가 달라진다. 키보드를 보고 컨트롤 해야 하기 때문이다. 
+
+                        // })
+                        $("#ppp").focus(function(){ //깜빡이 on
+                            $(this).css({backgroundColor:"#f00"})
+                        })
+                        $("#ppp").blur(function(){ // 깜빡이 탈출시.
+                            $(this).css({backgroundColor:"#fff"})
+                        })
+
+                        
+
+
+        })
+
+    </script>
+
+
+
+
+</head>
+<body>
+    <h1>11_keyEvent</h1>
+
+    <input type="text"><br>
+<input type="text" id="ppp"/><br>
+<input type="text"><br>
+
+
+<div  id="cons"> </div>
+
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>05_animate</title>
+    <style>
+        .box {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            background: #ff0;
+            border: 1px solid;
+        }
+    </style>
+    <script src="../myjs/jquery-3.6.0.js"></script>
+    <script>
+        $(function () {
+
+
+            $(".box").animate({ left: '50%', top: "200px" }, 500)
+            $(".box").animate({ top: "600px" }, 500)
+            $(".box").animate({ left: '0px', top: '0px' }, 500)
+            // function a(){
+            $(".box").animate({ left: '35%', top: "0px" }, 90)
+            $(".box").animate({ left: '70%', top: "700px" }, 90)
+            $(".box").animate({ left: '0%', top: "150px" }, 90)
+            $(".box").animate({ left: '80%', top: "150px" }, 90)
+            $(".box").animate({ left: '20%', top: "700px" }, 90)
+            // }
+
+
+
+            
+            // setInterval(a,450)
+            /*  셋인터벌 하고 특정 셋인터벌을 종료 시키기 .
+                setInterval() returns an interval ID, which you can pass to clearInterval():
+
+                var refreshIntervalId = setInterval(fname, 10000);
+
+                clearInterval(refreshIntervalId);
+            */
+        })
+    </script>
+</head>
+
+<body>
+    <h1>05_animate</h1>
+    <div class="box">box1
+
+    </div>
+
+</body>
+
+</html>

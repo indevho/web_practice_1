@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>09_prototype</title>
+</head>
+<body>
+<h1>09_prototype</h1>
+<script>
+Member = function(name, age, marriage){
+	
+	this.name = name
+	this.age = age
+	this.marriage = marriage
+}
+
+Member.prototype.meth_1 = function(addAge){
+	
+	document.write(this.name+":"+(this.age+addAge)+"<br>")
+}
+
+Member.prototype.toString = function(){
+	
+	return this.name+":"+this.age+","+this.marriage
+}
+
+Member.prototype = {
+		
+	meth_2:function(aa){
+		document.write(this.name+" meth_2():"+aa+"<br>")
+	},	
+	
+	meth_3:function(aa,bb){
+		document.write(this.name+" meth_3():"+aa+","+bb+"<br>")
+		return aa+bb
+	}
+}
+
+
+var mm1 = new Member("김성원",24,false)
+var mm2 = new Member("김지수",21,false)
+//mm1.meth_1(10)
+document.write(mm1)
+mm1.meth_2(10)
+var rr = mm1.meth_3(10,20)
+document.write("rr:"+rr+"<br>")
+
+mm2.meth_2(40)
+mm2.meth_3(50,60)
+
+var mms = [ 
+	new Member("이효리",45,true),
+	new Member("삼효리",35,false),
+	new Member("사효리",25,false),
+	new Member("오효리",55,true)
+]
+
+for(i in mms){
+	
+	mms[i].meth_2(100)
+}
+
+
+/*
+ * 
+ 도형 클래스를 구현하세요
+ 
+ 원, 직사각형, 직각삼각형
+ 
+ getArea() --> 넖이
+ 
+ getBorder() -> 둘레 리턴
+ 
+ 도형 배열로 처리하세요
+ 
+ 
+ */
+ 
+ function Shape(...line){
+	 this.name = ["원","직사각형","직각삼각형"][line.length-1]
+	 this.line = line
+ }
+ 
+ Shape.prototype = {
+	
+	getArea : function(){
+		switch(this.line.length){
+			case 1:
+				return Math.PI * this.line[0] * this.line[0]
+			case 2:
+				return this.line[0] * this.line[1]
+			case 3:
+				return this.line[0] * this.line[1] / 2
+			
+		}
+	},
+	
+	getBorder : function(){
+		switch(this.line.length){
+			case 1:
+				return Math.PI * this.line[0] * 2
+			case 2:
+				return (this.line[0] + this.line[1]) / 2
+				
+			case 3:
+				return this.line[0] + this.line[1] + this.line[2]
+		}
+	},
+	
+	toString : function(){
+		return this.name+":"+this.getArea()+","+this.getBorder()+"<br>"
+		
+	}
+ }
+ 
+ 
+ var shapes = [new Shape(5),new Shape(5,6),new Shape(7,8),new Shape(9),new Shape(5,6,8)]
+
+
+ for(i in shapes){
+	 //const sh = shapes[i]
+	 //document.write(sh.getArea()+","+sh.getBorder()+"<br>")
+	 document.write(shapes[i])
+	 
+ }
+</script>
+</body>
+</html>

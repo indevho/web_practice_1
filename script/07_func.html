@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>07_func</title>
+</head>
+<body>
+<h1>07_func</h1>
+
+<script>
+var g1 = 100  //함수 밖 지역변수
+g2 = 200      //전역변수
+
+function fn_1(){
+	
+	var a = 10  //지역변수
+	b = 20      //전역변수
+	
+	document.write("fn_1() :"+g1+","+g2+","+a+","+b+"<br>")
+}
+
+function fn_2(){
+
+	//document.write("fn_2() :"+g1+","+g2+","+a+","+b+"<br>") 다른 함수의 지역변수 접근 불가
+	document.write("fn_2() :"+g1+","+g2+","+b+"<br>")
+}
+
+function fn_3(qq,ww){ //매개변수는 지역변수
+
+	
+	document.write("fn_3() :"+qq+","+ww+"<br>")
+}
+/*
+function fn_4(var ee , var rr){ //매개변수에 지역변수 예약어 var 사용 불가
+
+	
+	document.write("fn_4() :"+ee+","+rr+"<br>")
+}
+*/
+
+//document.write("main 1 :"+g1+","+g2+","+b+"<br>") 함수 호출 전에는 b 가 선언되지 않으므로 호출 불가
+document.write("main 1 :"+g1+","+g2+"<br>")
+fn_1()
+//document.write("main :"+g1+","+g2+","+a+","+b+"<br>")  a는 fn_1() 지역 변수 이므로 함수 밖에서 접근 불가
+document.write("main 2 :"+g1+","+g2+","+b+"<br>")  // b : 함수내부에서 선언하였어도 전역변수이어서 함수 실행 후 접근 가능
+
+fn_2()
+fn_3(123,456)
+
+//document.write("main 3 :"+qq+"<br>")
+</script>
+</body>
+</html>

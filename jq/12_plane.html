@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        #me{
+            width: 64px;
+            height: 64px;
+            position: absolute;
+            left: 170px;
+            top: 500px;;
+
+
+
+        }
+        #wrapper{
+            width: 600px;
+            height: 600px;
+            position: absolute;
+            left: 100px;
+            top: 100px;
+            background-color: #ff0;
+        }
+        .missile{
+            position:absolute;
+        }
+        #bg{
+            
+        }
+
+    </style>
+    <script src="../my_js/jquery-3.6.0.js"></script>
+    <script src="../my_js/jquery-ui.min.js"></script>
+    <script>
+        var x=150
+        var y=300
+        arr =[]
+        $(function(){
+            $(document).keydown(function(e){
+                
+
+                var t =e.keyCode
+                console.log(t)
+                switch(t){
+                    case 39: x+=10
+                        break;
+                    case 37 : x-=10
+                    break;
+                    case 40: y+=10
+                    break;
+                    case 38: y-=10
+                    break;
+                    case 32: 
+                    break;
+ 
+
+                }
+                if(x<10){
+                    x=10
+                }
+                if(x>480)
+                x=480 //더 늘어나지 못해
+                // $("#me").css({left: x+"px", top: y+"px"})
+                $("#me").css({left: x+"px"})// 상하이동 차단.
+                // var x=  $("#me").offset.left+60
+                // var y=  $("#me").offset.top
+
+
+            //     var headerTop= $("header").offset().top
+            // var headerLeft= $("header").offset().left
+            // left+60에서 공격출발.
+
+            })
+            function missileGo(){
+                for( var eachm in arr ){
+                    
+                }
+                //object 값이 0이면 바로 arr에서 지우기??
+
+            }
+
+
+
+        })
+        </script>
+</head>
+<body>
+    <h1>plane!!</h1>
+    <div id="wrapper">
+        
+<div id="me">
+    <img src="../fff/222plane.png" alt="" />
+    </div>
+    </div>
+</body>
+</html>

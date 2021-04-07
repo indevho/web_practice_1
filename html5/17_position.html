@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>17_position</title>
+<style>
+.tot{
+    position: static;
+	width:400px;
+	height: 300px;
+	background: #ff0;
+	margin: 50px;
+}
+.tot > div{
+	width:50px;
+	height: 50px;
+	background: #f00;
+	border: 1px solid #000;
+	
+}
+.ssss > div{
+	position: static;/*좌표계산 불가*/
+	left:100px;
+	top:100px;
+}
+
+.rrrr > div{
+	position: relative; /* static 형태로 있던 좌표를 기준으로 상대적으로 좌표계산한다*/
+	left:50px;
+	top:50px;
+}
+.asdf > div{
+	position: absolute; /* 최소 부모가 relative 이상이어야 한다.
+							부모 요소의 위치를 기준좌표로 하여 좌표계산한다.
+							부모가 static 일 경우 그 위 부모 (없으면 body)의 좌표를 기준 좌표로 잡는다.  
+						*/
+	top:50px;
+	
+}
+
+.asdf > div:nth-of-type(1){
+	
+	left:50px;
+	
+}
+.asdf > div:nth-of-type(2){
+	
+	left:150px;
+	
+}
+.asdf > div:nth-of-type(3){
+	
+	left:250px;
+	
+}
+
+.main{
+    
+	width:400px;
+	height: 300px;
+	background: #0f0;
+	margin: 0 auto;
+}
+
+.ms{
+	position: static;
+}
+.mr{
+	
+	position: relative;
+}
+.ma{
+	position: absolute;
+}
+</style>
+</head>
+<body>
+<h1>17_position</h1>
+<div class="tot ssss">
+	<h2>static</h2>
+	<div>static1</div>
+	<div>static2</div>
+	<div>static3</div>
+</div>
+<div class="tot rrrr">
+	<h2>relative</h2>
+	<div>relative1</div>
+	<div>relative2</div>
+	<div>relative3</div>
+</div>
+<div class="tot asdf">
+	<h2>absolute</h2>
+	<div>absolute1</div>
+	<div>absolute2</div>
+	<div>absolute3</div>
+</div>
+<div class="main ms">
+	<h2>ms</h2>
+</div>
+<div class="main mr">
+	<h2>mr</h2>
+</div>
+<div class="main ma">
+	<h2>ma</h2>
+</div>
+</body>
+</html>

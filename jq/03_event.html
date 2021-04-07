@@ -1,0 +1,87 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>03_event</title>
+<style>
+*{
+	margin:0;
+	padding:0;
+}
+#wrapper{
+	width: 820px;
+	height: 500px;
+	margin:auto;
+    border: 1px solid #aaa;
+}
+
+#wrapper > div{
+	width: 160px;
+	height: 180px;
+	border:1px solid #000;
+	float: left;
+	margin:19px;
+}
+</style>
+
+<script src="../myjs/jquery-3.6.0.js"></script>
+<script>
+$(function(){
+    // 기본 구조  =>> 소스 / 리스너 / 액션.
+
+    // 객체를 만들어 집어 넣으려는 그림. append sth.
+    for(var i=1; i<9;i++){
+        var img=$('<img>')
+        img.attr('src','imgs/0'+i+'.png')
+        var dd0=$('<div></div>')
+        dd0.attr('class','box'+i)
+        dd0.attr('id','rec'+i)
+        dd0.append(img)
+        $("#wrapper").append(dd0)
+        
+    }
+    //마우스 변경하면 먼일이 일어나게 하고프다.
+    $("#wrapper > div:nth-child(1)").mouseover(function(){
+                // alert("마우스올림") // '' ""  상관없음
+                console.log($(this)+"::child1:mouseover")
+        //  .on ( 액션, 반응)
+        //   .액션 ( function 반응정의)
+        // 두 방식이 있다.
+        // 용도. 후자는 문자열로 구문을 받아서 좀 편하게 하고 싶을떄 쓴다. 
+        $("#wrapper > div").eq(4).css({background: '#fa0'})
+    })
+    $("#wrapper > div").eq(1).on("mouseout",function(){        
+        // alert("내림1111") // '' ""  상관없음
+    })  // eq(1)  이 뭔지 모르겠음 .
+    $("#wrapper > div").eq(1).on("mouseout",function(){
+        // alert("내렸냐222") // '' ""  상관없음
+        console.log("2번째  div : 내림.")
+        $("#wrapper > div").eq(5).css({boxShadow: '10px 10px 20px #333'})
+    }) 
+    $(".box3").on("mousedown",function(){
+        alert("마우스 다운 눌르는 순간.") // '' ""  상관없음        
+        $("#wrapper > div").eq(6).css({opacity: 0.5})
+        //3번에 손대니까7번째 친구가 움직인다.
+    }) 
+    $("#rec4").on("mouseup",function(){
+        // alert("마우스 업: 눌럿다가 땟을때") // '' ""  상관없음
+        $("#wrapper > div").eq(7).css({transform : 'rotate(90deg)'})
+        // 4번쨰 녀석이 리슨 하는 순간   8번이 움직인다. 
+    }) 
+
+    // function a(){
+    //     var dd1=$('<div></div>')}
+    //         a()
+    
+    
+})
+
+</script>
+</head>
+<body>
+<h1>03_event</h1>
+
+<div id="wrapper"></div>
+</body>
+</html>

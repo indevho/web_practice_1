@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="UTF-8">
+      <title>15_dom</title>
+      <style>
+      #con{
+         border: 1px solid #000;
+         padding:50px;
+         margin:50px;
+      }
+      
+       .zxc{
+          background: #ff0;
+       }
+       
+       #c{
+          border: 3px solid #f00;
+       }
+      
+      </style>
+      
+      <script>
+         window.onload = function(){
+            
+            
+            
+            function log(str){
+               var con = document.getElementById("con")
+               con.innerHTML += str+"<br>"
+            }
+            
+            
+            log("첫번째 로그")
+            
+            
+            //-------------documentElement 
+            log("-------------documentElement ")
+            var root  = document.documentElement
+            
+            log(root.tagName)  //html
+            
+            //log(root)
+            //console.log(root)
+            
+            var a = document.getElementById("a")
+            log("a.getAttribute(\"qwer\") : "+a.getAttribute("qwer"))
+            
+            //var a2 = root.getElementById("a")
+            //log("a2.getAttribute(\"qwer\") : "+a2.getAttribute("qwer"))
+            
+            //log(root.innerHTML)
+            var rootCh = root.childNodes  // root --> html 밑에 노드들 
+            //log(rootCh)
+            
+            //console.log(rootCh)
+            
+            for(var i in rootCh){
+               
+               //log(rootCh[i])
+               log(rootCh[i].tagName)  //html 하위 노드들의 이름
+            }
+         
+         
+            
+         
+         
+            log("-------------getElementsByTagName ")
+            
+            var div = document.getElementsByTagName("div")
+            
+            //console.log(div)
+            
+            for(var i = 0; i<div.length; i++){
+               
+               //log(i+":"+div[i].innerHTML)
+               
+               log(i+":"+div[i].getAttribute("qwer"))
+            }
+         
+            log("-------------getElementsByClassName ")
+            
+            var zxc = document.getElementsByClassName("zxc")
+            
+            //console.log(zxc)
+            
+            
+            for(var i = 0; i<zxc.length; i++){
+               
+               
+               
+               log(i+":"+zxc[i].tagName)
+               
+               zxc[i].innerHTML += "하이요"
+            }
+            
+            log("-------------getElementById ")
+            var c = document.getElementById("c")
+            
+            log(c.tagName)
+            
+            // node 에서 하위  node  가져오기
+            var subSpan = c.getElementsByTagName("span")
+            
+            console.log(subSpan)
+            
+            log("subSpan[0].innerHTML:"+subSpan[0].innerHTML)
+            
+            
+            /// 자식 node 배열
+            var cCh = c.childNodes
+            
+            //console.log(cCh)
+            for(i in cCh){
+               
+               log(i+""+cCh[i].tagName)
+            }
+            //var span = cCh.getElementsByTagName("span")
+            
+            
+            
+            
+            // 자식 node 배열 원소 에서 하위  node  가져오기
+            var subDiv = cCh[1].getElementsByTagName("div")
+            
+            console.log(subDiv)
+            
+            log("subDiv[0].innerHTML:"+subDiv[0].innerHTML)
+            
+            
+            
+            ///node 생성------------------------
+            var new_node = document.createElement("div")
+            
+            new_node.innerHTML = "새로운 div"
+            
+            //c 노드 에 자식으로 추가
+            c.appendChild(new_node)
+            
+            
+            ///node  제거------------------------
+            // 제거할 노드 가져오기
+            var d = document.getElementById("d")
+            
+            //부모노드에서 자식노드 제거
+            c.removeChild(d)
+         }
+      </script>
+   
+   
+   </head>
+   
+   
+   <body>
+      <h1>15_dom</h1>
+   
+      <span class="zxc" id="a" qwer="123">
+         span1
+         <p>
+            문단1
+            <div id="b" qwer="456">div1</div>
+            <div  class="zxc" qwer="789">div2</div>
+         </p>
+      </span>
+      
+      <div qwer="111" id="c">
+         div3
+         <span>
+             span2
+            <div  class="zxc" qwer="222">div4</div>
+         </span>
+         <p  class="zxc" id = "d">문단2</p>
+      </div>
+      
+      <div id="con"></div>
+
+   </body>
+</html>

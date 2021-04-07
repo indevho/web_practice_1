@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>12_flex</title>
+<style>
+div{
+	width:600px;
+	height: 200px;
+	background: #ff0;
+	margin: 30px;
+	display: flex;	/* 옆으로 나열 됨 */
+	align-items: center;  /*나열 방향의 직교 정렬 : 가운데*/
+}
+
+div > div { /* 부모 요소가 display: flex; 인 경우 float : left 하지 않아도 됨 */
+
+	width:50px;
+	height: 50px;
+	background: #f00;
+	margin: 10px;
+	
+}
+
+.row{
+	flex-direction: row;	/* 나열 방향 : 행 */
+	justify-content: center; /*나열 방향  정렬  : 가운데*/
+}
+
+.column{
+	height: 500px;  /* 높이가 충분하지 않으면  item의 크기를 줄여 맞춤 */
+	flex-direction: column; /* 나열 방향 : 열 */
+	justify-content: center;
+}
+
+
+.row-reverse{
+	flex-direction: row-reverse; /* 나열 방향 : 행 역방향 */
+	justify-content: center;
+}
+
+.space-between{
+	flex-direction: row;
+	justify-content: space-between; /* 나열 방향 정렬: 배분 (맨 끝 좌우는 여백을 주지 않음) */
+}
+
+.space-around{
+	flex-direction: row;
+	justify-content: space-around; /* 나열 방향 정렬: 배분 (맨 끝 좌우도 여백 계산) */
+}
+</style>
+</head>
+<body>
+<h1>12_flex</h1>
+<h2>row</h2>
+<div class="row">
+	<div>1</div>
+	<div>2</div>
+	<div>3</div>
+	<div>4</div>
+</div>
+<h2>column</h2>
+<div class="column">
+	<div>1</div>
+	<div>2</div>
+	<div>3</div>
+	<div>4</div>
+</div>
+<h2>row-reverse</h2>
+<div class="row-reverse">
+	<div>1</div>
+	<div>2</div>
+	<div>3</div>
+	<div>4</div>
+</div>
+<h2>space-between</h2>
+<div class="space-between">
+	<div>1</div>
+	<div>2</div>
+	<div>3</div>
+	<div>4</div>
+</div>
+<h2>space-around</h2>
+<div class="space-around">
+	<div>1</div>
+	<div>2</div>
+	<div>3</div>
+	<div>4</div>
+</div>
+</body>
+</html>

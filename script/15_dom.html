@@ -89,9 +89,29 @@
 
                 console.log(cc)
                 var subDiv = cc[1].getElementsByTagName("div")
+
+                log("===== node배열에서 하위 가져오기=====")
+
                 console.log(subDiv)
                 log("subDiv.innerHTEML::"+subDiv[0].innerHTML)
 
+                log("===== node 새로 만들기=====")
+
+                var new_node =document.createElement("div")
+                new_node.innerHTML ="새로운 div"
+
+                // c 노드에 자식으로 추가
+
+                c.appendChild(new_node)
+
+                log("===== node 제거하기=====")
+
+
+                var d = document.getElementById("d")
+                c.removeChild(d)
+
+                // 내용 추가하거나  >> 새 노드 추가 삭제 뺼꺼말꺼를 다루기 .
+                // 추가 삭제에 관된 주어를 명확히 알아야 한다.
 
 
         }

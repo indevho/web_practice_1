@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>03_display</title>
+<style>
+*{
+	margin: 0;
+	padding: 0;
+}
+
+
+div , span{ /* 동시에 여러개를 지정 가능 */
+
+	height: 100px;
+	width: 100px;
+	border: 1px solid #000;
+	background: #ff0;
+}
+
+div{
+
+	background: #ff0;
+}
+
+div:nth-of-type(1){
+
+	display: inline;
+}
+
+div:nth-of-type(2){
+
+	display: block;
+}
+div:nth-of-type(4){
+
+	display: inline-block;  /* 현재 display 속성 + 크기*/
+}
+
+span{
+
+	background: #0ff;
+}
+
+span:nth-of-type(2){
+
+	display: block;
+}
+span:nth-of-type(3){
+
+	display: inline;
+}
+span:nth-of-type(4){
+
+	display: inline-block;	/* 현재 display 속성 + 크기*/
+}
+
+img{
+	width: 200px;
+	height: 200px;
+	display: block;
+	float: left;
+}
+h2{
+	clear: both;
+}
+
+div:nth-of-type(7){
+
+	display: none;  
+}
+div:nth-of-type(8){
+
+	visibility: hidden;
+}
+</style>
+</head>
+<body>
+<h1>03_display</h1>
+<h2>div</h2>
+<div>div 1</div>  <!-- 기본 display : block -->
+<div>div 2</div>
+<div>div 3</div>
+<div>div 4</div>
+<div>div 5</div>
+
+<h2>span</h2>
+<span>span 1</span>		<!-- 기본 display : inline -->
+<span>span 2</span>
+<span>span 3</span>
+<span>span 4</span>
+<span>span 5</span>
+
+<h2>img</h2>		
+<img src="../fff/son_1.jpg" alt="" /><!-- 기본 display : inline-block -->
+<img src="../fff/son_2.jpg" alt="" />
+<img src="../fff/son_3.jpg" alt="" />
+<img src="../fff/child_1.jpg" alt="" />
+<img src="../fff/child_2.jpg" alt="" />
+
+
+<h2>none, hidden</h2>
+<div>div 6</div>
+<div>div 7</div>
+<div>div 8</div>
+<div>div 9</div>
+<div>div 10</div>
+
+</body>
+</html>

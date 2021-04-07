@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>02_pacMan</title>
+<style>
+*{
+	margin:0;
+	padding:0;
+}
+
+#wrapper{
+	width:600px;
+	height: 500px;
+	border:1px solid #000;
+	position: relative;
+	margin:auto;
+}
+
+.pac{
+	width:50px;
+	height: 50px;
+	border-radius: 25px;
+	background: rgba(0,255,0,0.3);
+	position: absolute; 
+	text-align: center;
+	line-height: 50px;
+}
+
+.pac:nth-of-type(1){
+	left:10px;
+	top: 10px; 
+	background: #f00;
+}
+
+.pac:nth-of-type(2){
+	left:100px;
+	top: 30px; 
+	background: #fa0;
+}
+
+.pac:nth-of-type(3){
+	left:250px;
+	top: 300px; 
+	background: #ff0;
+}
+
+.pac:nth-of-type(4){
+	left:500px;
+	top: 400px; 
+	background: #0f0;
+}
+
+.pac:nth-of-type(5){
+	left:300px;
+	top: 300px; 
+	background: #00f;
+}
+</style>
+
+
+<script src="../my_js/jquery-3.6.0.js"></script>
+<script>
+	$(function(){		//window.onload 와 같음
+		
+		
+		//var dx = 5, dy = 5
+		
+		const maxX = parseInt($("#wrapper").css("width"))
+		const maxY = parseInt($("#wrapper").css("height"))
+		
+		const mySize = parseInt($(".pac").css("width"))
+		
+		
+		function gogo(){
+		
+			$(".pac").each(function(){
+				
+				//console.log($(this))
+				//console.log($(this).css("background"))
+				
+				var xx = parseInt($(this).css("left"))
+				var yy = parseInt($(this).css("top"))
+				
+				var dx = eval($(this).attr("dx"))
+				var dy = eval($(this).attr("dy"))
+				
+				if(yy>= maxY-mySize || yy < 0)
+				{
+					dy*=-1
+				}
+				if(xx>= maxX-mySize || xx < 0)
+				{
+					dx*=-1
+				}
+				xx+=dx
+				yy+=dy
+				
+				$(this).attr("dx", dx)
+				$(this).attr("dy", dy)
+				
+				//console.log(xx, yy)
+				$(this).css({left: xx+"px" , top:yy+"px"})
+
+			})
+		
+		
+			/* var xx = parseInt($(".pac").css("left"))
+			var yy = parseInt($(".pac").css("top"))
+			
+			
+			if(yy>= maxY-mySize || yy < 0)
+			{
+				dy*=-1
+			}
+			if(xx>= maxX-mySize || xx < 0)
+			{
+				dx*=-1
+			}
+			xx+=dx
+			yy+=dy
+			
+			
+			
+			
+			console.log(xx, yy)
+			$(".pac").css({left: xx+"px" , top:yy+"px"}) */
+		}
+		
+		//var go = setInterval(gogo, 30)
+		
+		/* setInterval(function(){
+			console.log("무야호!", i++)
+		}, 100); */
+		
+		$("#trigger").click(function(){
+			
+			if($(this).html()=="시작"){
+				go = setInterval(gogo, 30)
+				$(this).html("멈춤")
+			}else{
+				clearInterval(go)
+				$(this).html("시작")
+			}
+		})
+	})
+</script>
+</head>
+<body>
+<h1>02_pacMan</h1>
+
+<div id="trigger">시작</div>
+
+<div id="wrapper">
+	<div class="pac" dx=5 dy=-5 >1</div>
+	<div class="pac" dx=-5 dy=5 >2</div>
+	<div class="pac" dx=3 dy=5 >3</div>
+	<div class="pac" dx=5 dy=2 >4</div>
+	<div class="pac" dx=-4 dy=5 >5</div>
+</div>
+</body>
+</html>

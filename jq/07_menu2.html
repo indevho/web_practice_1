@@ -1,0 +1,113 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+.main{
+	width:200px;
+	height: 50px;
+	/* height: 170px; */
+	overflow: hidden;
+	
+}
+.main > .title{
+	width:200px;
+	height: 50px;
+	background: #0f0;
+	color:#000;
+	border: 1px solid #000;
+	box-sizing: border-box;
+	text-align: center;
+	line-height: 50px;
+	font-size: 25px;
+}
+.main > .sub{
+	width:150px;
+	height: 30px;
+	background: #ff0;
+	border: 1px solid #ccc;
+	box-sizing: border-box;
+	text-align: center;
+	line-height: 30px;
+	font-size: 16px;
+	margin-left: 20px;
+}
+
+</style>
+<script src="../my_js/jquery-3.6.0.js"></script>
+<script src="../my_js/jquery-ui.min.js"></script>
+<script>
+$(function(){
+	var currMain = -1
+
+	
+	
+	$(".main").click(function(){
+		//$(this).css("height")
+		//alert("눌렀냐?")
+		
+		const basic = {height: "50px"}
+		const titleBasic = {backgroundColor: "#0f0",	color:"#000"}
+		
+		$(".main").stop().animate(basic, 500,'easeOutBounce')	
+		$(".main > .title").stop().animate(titleBasic, 500,'easeOutBounce')
+		
+		//console.log($(this).index())
+		
+		var currCss = ""
+		var currTitle = ""
+		if($(this).index() == currMain){
+			currCss = basic
+			currTitle = titleBasic
+			currMain = -1
+		}else{
+			
+			currCss = {height: "170px"}
+			currTitle = {backgroundColor: "#f0f", color:"#fff"}
+			currMain = $(this).index()
+		}
+			
+		$(this).stop().animate(currCss, 500,'easeOutBounce')
+		
+		console.log(currTitle)
+		$(this).children(".title").stop().animate(currTitle, 500,'easeOutBounce')
+
+		
+
+
+
+
+
+
+
+	})
+})
+</script>
+<title>07_menu</title>
+</head>
+<body>
+<h1>07_menu</h1>
+<div class="main">
+	<div class="title">회사소개</div>
+	<div class="sub">인사말</div>
+	<div class="sub">인사개</div>
+	<div class="sub">인사소</div>
+	<div class="sub">안사말</div>
+</div>
+<div class="main">
+	<div class="title">제품</div>
+	<div class="sub">니품</div>
+	<div class="sub">내품</div>
+	<div class="sub">그놈품</div>
+	<div class="sub">퍼품</div>
+</div>
+<div class="main">
+	<div class="title">고객센터</div>
+	<div class="sub">공지사항</div>
+	<div class="sub">일지사항</div>
+	<div class="sub">이지사항</div>
+	<div class="sub">삼지사항</div>
+</div>
+</body>
+</html>

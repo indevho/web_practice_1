@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>03_jQueryEvent</title>
+    <script src="../myjs/jquery-3.6.0.js"></script>
+    <style>
+        #con{
+           border:1px solid #000;
+            margin: 20px;
+        }
+     
+    
+    </style>
+    
+    
+    
+</head>
+<body>
+    <h1>03_jQueryEvent</h1>
+    <span id="a" qwer="조현재" >탁준영</span>
+    
+    <p >
+        문단
+        <span class="xx" id="b" qwer="반장" >김상철</span>
+        
+    </p>
+    <div>
+        <p >또 문단</p>
+        <span id="c" qwer="세하" >박세연</span>
+        <div  class="xx"  id="c" qwer="아가씨">선은경</div>
+    </div>
+    
+    <div id="con"></div>
+    <script>
+        function log(msg){
+            var ttt = $('#con').html()+msg+"<br>"
+            $('#con').html(ttt)    
+        }
+        $('#con').html("글자 글자<br>")
+        console.log($("span")[0])
+        //$('#con').html($("span")[0].innerHTML+"<br>")
+        log($("span")[0].innerHTML)
+        
+        //log($("span").item(0).innerHTML)
+        log($("span")[0].getAttribute("qwer"))
+        log($("span").eq(0).attr("qwer"))
+        log($("span").eq(0).html())
+        log("-------------------------------")
+        log($("div > .xx").html())
+        
+        
+        $("div > .xx").attr("id","d")
+        var nn = $("<span>")
+        nn.html("세하세하")
+        nn.attr("id",'shsh')
+        $("#c").append(nn)
+        $("#d").remove()
+    
+    
+    </script>
+</body>
+</html>

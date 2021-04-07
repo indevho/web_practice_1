@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>11_form</title>
+</head>
+<body>
+<h1>11_form</h1>
+<!-- <form action="formReg.jsp">
+	id<input type="text" /><br>
+	pw<input type="text" /><br>
+</form> -->
+<h2>회원가입</h2>
+<!-- for  ==> id (ddd_id) 로 이동 -->
+<label for="ddd_id">검색어로 이동</label>
+
+<form action="formReg.jsp">
+	<table border="">
+		<tr>
+			<td>어른디</td>
+			<td><input type="text" name="id" size="10" maxlength="8" />
+				<input type="button"  value="중복확인" />
+			</td>
+		</tr>
+		<tr>
+			<td>아뭐</td>
+			<td><input type="password" name="pw" /></td>
+		</tr>
+		<tr>
+			<td>성별</td>
+			<td>
+				<input type="radio" name="gender" value="m" />남
+				<input type="radio" name="gender" value="f" checked />여
+				<input type="radio" name="gender" value="it" checked/>it인
+			</td>
+		</tr>
+		<tr>
+			<td>취미</td>
+			<td>
+				<input type="checkbox" name="hobby" value="music"  checked/>음악
+				<input type="checkbox" name="hobby" value="climb" />등산
+				<input type="checkbox" name="hobby" value="sleep"  checked/>잠
+			</td>
+		</tr>
+		<tr>
+			<td>이메일</td>
+			<td>
+				<input type="text" name="email1" />@
+				<select name="email2" style="background: #ff0; width: 200px" >
+					<option value="naver.com">나베르</option>
+					<option value="daum.net" selected>....</option>
+					<option value="nate.com" selected>나테</option>
+					<option value="google.com">구그레</option>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td>파일</td>
+			<td><input type="file" name="upfile" /></td>
+		</tr>
+		<tr>
+			<td>내용</td>
+			<td><textarea name="content" cols="30" rows="10">남기실 소</textarea></td>
+		</tr>
+		<tr>
+			<td colspan="2" align="center">
+				<input type="submit" value="회원가입" />
+				<input type="reset" value="초기화" />
+				<button>submit과 같은 역할</button>
+			</td>
+		</tr>
+	</table>
+</form>
+
+
+<h2>검색</h2>
+<form action="schReg.jsp">
+      <!-- for 속성이 없어야 label 안에 있는 input 으로 커서 이동 -->
+	<label >구분<input type="text" name="cate" value="제목" /></label>
+	
+	<!-- for로 지정할 경우 커서를 받을 input 에 for 로 지정한 id를 기재해야 한다
+	<label for="ddd_id">검색어로 이동</label>  id : ddd_id 인 요소로 커서 이동
+	 -->
+	<label >검색어<input type="text" name="data" id="ddd_id" placeholder="검색어를 입력하세요"/></label>
+	<input type="submit" value="검색" />
+</form>
+
+
+</body>
+</html>

@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>03_event</title>
+<style>
+*{
+	margin:0;
+	padding:0;
+}
+#wrapper{
+	width: 820px;
+	height: 460px;
+	/* background: #ff0; */
+	margin:auto;
+	border:1px solid #ccc;
+}
+
+#wrapper > div{
+	width: 160px;
+	height: 180px;
+	/* background: #0f0; */
+	border:1px solid #000;
+	float: left;
+	margin:19px;
+}
+</style>
+
+<script src="../my_js/jquery-3.6.0.js"></script>
+<script>
+$(function(){
+	
+	
+	for(var i = 1; i<=8;i++){
+		var img = $('<img>')
+		img.attr('src','imgs/0'+i+'.png')
+		
+		var dd0 = $('<div></div>')
+		dd0.attr('class','box'+i)
+		dd0.attr('id','rec'+i)
+		dd0.append(img)
+		$("#wrapper").append(dd0)
+	}
+	
+	/* $("#wrapper > div:nth-child(1)").on(
+			'mouseover',function(){
+		alert('올렸냐?')
+	})
+	
+	$("#wrapper > div").eq(1).on(
+			'mouseout',function(){
+		alert('내렸냐?')
+	}) */
+	
+	
+	$("#wrapper > div:nth-child(1)").mouseover(function(){
+		//alert('들어왔냐?')
+		console.log( $(this). index() )
+		//$("#wrapper > div").eq(4).css({background: '#fa0'})
+		
+		$("#wrapper > div").eq($(this).index() + 4).css({background: '#fa0'})
+	})
+	
+	$("#wrapper > div").eq(1).mouseout(function(){
+		//alert('나갔냐?')
+		console.log( $(this). index() )
+		//$("#wrapper > div").eq(5).css({boxShadow: '10px 10px 20px #000'})
+		$("#wrapper > div").eq($(this).index() + 4).css({boxShadow: '10px 10px 20px #000'})
+	})
+	
+	
+	$(".box3").on(
+			'mousedown',function(){
+			console.log( $(this). index() )
+			//$("#wrapper > div").eq(6).css({opacity: 0.5})
+			$("#wrapper > div").eq($(this).index() + 4).css({opacity: 0.5})
+	})
+	$("#rec4").on(
+			'mouseup',function(){
+		//alert('땠냐?')
+		console.log( $(this). index() )
+		//$("#wrapper > div").eq(7).css({transform : 'rotate(90deg)'})
+		$("#wrapper > div").eq($(this).index() + 4).css({transform : 'rotate(90deg)'})
+	})
+})
+
+</script>
+</head>
+<body>
+<h1>03_event</h1>
+
+<div id="wrapper"></div>
+</body>
+</html>

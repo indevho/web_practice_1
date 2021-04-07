@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>08_func_init</title>
+<style>
+	.member{
+		border: 1px solid #aaa;
+		margin:10px;
+		padding:10px;
+		clear: both;
+		height: 40px;
+	}
+	
+	.first > div:first-of-type{
+		font-size: 20px;
+	}
+	
+	.grade0{
+		background: #f00;
+	}
+	.grade1{
+		background: #fa0;
+	}
+	.grade2{
+		background: #ff0;
+	}
+	.grade3{
+		background: #0f0;
+	}
+	.grade4{
+		background: #00f;
+	}
+	
+	.member > div{
+		border: 1px solid #aaa;
+		margin:5px;
+		padding:5px;
+		float: left;
+		width:100px;
+		height: 30px;
+		box-sizing: border-box;
+	}
+
+
+</style>
+</head>
+<body>
+<h1>08_func_init</h1>
+<script>
+function fn_1(a, b){
+	
+	document.write("fn_1() : "+a+","+b+"<br>")
+}
+
+function fn_2(a, b = 456){
+	
+	document.write("fn_2() : "+a+","+b+"<br>")
+}
+
+function fn_3(a = 123, b){  // 매개변수의 생략은 뒤에서부터
+							// 따라서 맨 뒤가 아닌 중간에서의 매개변수 초기값의 사용은 뒤의 매개변수를 정의하지 않고 사용하게 된다.
+	
+	document.write("fn_3() : "+a+","+b+"<br>")
+}
+
+function fn_1(a, b, c){  // javascript는 오버로딩을 허용하지 않는다 즉, 같은 이름으로 함수 정의시 맨 나중에 정의한 함수가 호출 된다.
+						// 위의 fn_1() 함수 정의는 무시 된다.
+	
+	document.write("fn_1 오버로딩?() : "+a+","+b+","+c+"<br>")
+}
+
+
+function fn_4(a){
+	document.write("fn_4()  시작 ---------<br>")
+	
+	for(var i in a){
+		document.write("a["+i+"]:"+a[i]+"<br>")
+	}
+	
+	document.write("fn_4()  끝 ---------<br>")
+}
+
+
+function fn_5(...a){
+	document.write("fn_5()  시작 ---------<br>")
+	
+	for(var i in a){
+		document.write("a["+i+"]:"+a[i]+"<br>")
+	}
+	
+	document.write("fn_5()  끝 ---------<br>")
+}
+
+fn_1(10,20)
+fn_1(10)
+fn_1(10,20,30)
+
+fn_2(10,20)
+fn_2(10)
+
+fn_3(10,20)
+fn_3(10)  		//a : 10,   b : undifined
+fn_3()
+fn_4([11,22,33])
+fn_4(11,22,33)
+fn_5([55,66,77])
+fn_5(55,66,77)
+
+
+/*
+ * 
+
+
+
+ 
+						
+						
+이름 	성별 국어 영어 수학 lol 총점 평균 	등급 등수
+ 장동건 	여자 78 	77 	76  	231 77 		미 	3
+ 장서건 	남자 88 	87 	86 	88 	349 87.25 	우 	2
+ 장남건 	여자 58 	57 	56  	171 57 		가 	5
+ 장중건 	여자 98 	97 	96  	291 97 		수 	1
+ 북두신건 남자 68 	67 	66 	63 	264 66 		양 	4
+ */
+ 
+var studs = []
+const title = "name,gender,jum,tot,avg,grade,rank".split(",")
+const grArr = "수,우,미,양,가".split(",")
+ 
+ 
+ function studCalc(sss){
+	sss.gender =  ["여","남"][sss.jum.length-3]
+	sss.tot = 0
+	
+	for(i in sss.jum){
+		sss.tot += sss.jum[i]
+	}
+	
+	sss.avg = sss.tot /sss.jum.length
+	sss.grade = ["가","가","가","가","가","가","양","미","우","수","수"][ Math.floor(sss.avg/10) ]
+	sss.grClass = grArr.indexOf(sss.grade)
+}
+ 
+ function exam(name, ...jum){
+	
+	var st = {}
+	st.name = name
+	st.jum = jum
+	studCalc(st)
+	studs.push(st)
+}
+ 
+function rankCalc(me){
+	 
+	 me.rank = 1
+	 for(y in studs){
+		 var you = studs[y]
+		 if(me.avg < you.avg)
+			 me.rank++
+	 }
+ }
+ 
+ function ppp(st){
+	 
+	 rankCalc(st)
+	 
+	 var ccc = " "
+	 
+	 var ttt = "<div class='member'>"
+	 
+	 for(t in title){
+		ttt+="<div>"+st[title[t]]+"</div>"
+	 }
+	 
+	 ttt+="</div>"
+	 document.write(ttt)
+	 
+ }
+ 
+ 
+ 
+ 
+ exam("장동건",78,77,76)  	
+ exam("장서건",88 ,	87 	,86 ,	88) 	
+ exam("장남건",58 ,	57 ,	56 ) 	
+ exam("장중건",98 	,97 ,	96)  	
+ exam("북두신건", 68 ,	67 ,	66, 	63 )
+ 
+ 
+ 
+ 
+ for(i in studs){
+	 
+	 ppp(studs[i])
+ }
+ 
+
+</script>
+</body>
+</html>

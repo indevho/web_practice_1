@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>12_plane</title>
+<style>
+*{
+   margin:0;
+   padding:0;
+}
+#me{
+   width: 64px;
+   height: 64px;
+   position: absolute;
+   left: 270px;
+   top: 700px;   
+   z-index: 1;
+   background: #fff;
+}
+
+#wrapper{
+   width: 600px;
+   height: 800px;
+   position: absolute;
+   left: 200px;
+   top: 100px;
+   background-color: #ff0;   
+   overflow: hidden;
+}
+
+#bg{
+   width: 600px;
+   height: 800px;
+   position: absolute;
+   left: 0px;
+   top:-1793px;
+}
+
+#bg > img{
+   display: block;
+   height: 1793px;
+}
+</style>
+<script src="../my_js/jquery-3.6.0.js"></script>
+<script src="../my_js/jquery-ui.min.js"></script>
+<script>
+$(function(){
+   
+   var bgTop = -1793
+   
+   function bgMoving(){
+      $("#bg").css({top:bgTop+"px"})
+      
+      bgTop+= 2
+      
+      if(bgTop>=0)
+         bgTop = -1793
+   }
+
+   var bgMoveGo = setInterval(bgMoving, 30);
+   
+   
+   var x = 270
+   var y = 300
+   // 문서에서 키가 눌린경우
+   $(document).keydown(function(e){
+      
+      switch(e.keyCode){
+         case 39:       //   ->
+            x += 10
+            break
+         case 37:       //   <-
+            x -= 10
+            break
+         case 40:       //   v
+            y += 10
+            break
+         case 38:       //   ^
+            y -= 10
+            break
+            
+      }
+      
+      
+      if(x < 10)
+         x = 10
+      
+      if(x > 520)
+         x = 520   
+      //$("#me").css({left:x+"px", top:y+"px"})
+      $("#me").css({left:x+"px"})
+      //console.log(e.keyCode)
+   })
+
+})
+
+
+</script>
+</head>
+<body>
+<h1>12_plane</h1>
+<div id="wrapper">
+   <div id="me">
+      <img src="../fff/plane2.png" alt="" />
+   </div>
+   <div id="bg">
+      <img src="../fff/plane_bg.png" alt="" />
+      <img src="../fff/plane_bg.png" alt="" />
+      
+   </div>
+</div>
+
+
+</body>
+</html>

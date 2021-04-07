@@ -1,0 +1,133 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>04_car</title>
+<style>
+*{
+	margin:0;
+	padding:0;
+}
+
+#wrapper{
+	width:900px;
+	height: 600px;
+	position: relative;
+	margin: auto;
+}
+#wrapper > img{
+	width:900px;
+	height: 600px;
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+
+#wrapper >#boxs{
+	width:900px;
+	height: 600px;
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 1;
+}
+
+#wrapper >#boxs > div{
+	width:90px;
+	height: 60px;
+	float: left;
+	background: #0c0;
+	border: 1px solid #ccc;
+	box-sizing: border-box;
+}
+</style>
+
+<script src="../myjs/jquery-3.6.0.js"></script>
+<script>
+$(function(){
+	for (var i = 0; i <100; i++) {
+		var bb = $("<div></div>")
+		$("#wrapper >#boxs").append(bb)	
+		
+		bb.mouseover(function(){
+			//console.log($(this).index() )
+			var no = $(this).index()
+			
+			//console.log($(this).css("background"))
+			var one = no%10
+			var ten = (no-one)/10
+			
+			$(this).css( {opacity: 0})
+			
+			var show03 = []
+			if(one!=0) show03.push(no-1)
+				
+				//$("#wrapper >#boxs > div").eq(no-1).css( {opacity: 0.3})
+			if(one!=9) show03.push(no+1)
+				//$("#wrapper >#boxs > div").eq(no+1).css( {opacity: 0.3})
+				
+			if(ten!=0) show03.push(no-10)
+				//$("#wrapper >#boxs > div").eq(no-10).css( {opacity: 0.3})
+				
+			if(ten!=9) show03.push(no+10)
+				//$("#wrapper >#boxs > div").eq(no+10).css( {opacity: 0.3})
+			
+			for (let hh of show03) {
+				//console.log(shows.indexOf(hh))
+				if(shows.indexOf(hh)==-1)
+					$("#wrapper >#boxs > div").eq(hh).css( {opacity: 0.3})
+			}
+		})
+		bb.mouseout(function(){
+			
+			
+			
+			var no = $(this).index()
+			var hides = [no, no-1, no+1, no-10, no+10]
+			
+			
+			for (let hh of hides) {
+				//console.log(shows.indexOf(hh))
+				if(shows.indexOf(hh)==-1)
+					$("#wrapper >#boxs > div").eq(hh).css( {opacity: 1})
+			}
+			
+			/* $(this).css( {opacity: 1})
+			$("#wrapper >#boxs > div").eq(no-1).css( {opacity: 1})
+			$("#wrapper >#boxs > div").eq(no+1).css( {opacity: 1})
+			$("#wrapper >#boxs > div").eq(no-10).css( {opacity:1})
+			$("#wrapper >#boxs > div").eq(no+10).css( {opacity: 1}) */
+		})
+		
+		
+		var shows = []
+		
+		bb.click(function(){
+			
+			var no = $(this).index()
+			var sch = shows.indexOf(no)
+			if(sch == -1){
+				$(this).css({opacity:0})
+				shows.push(no)
+			}else{				
+				$(this).css({opacity:1})
+				shows.splice(sch, 1)
+			}
+			
+			
+		})
+	}
+	
+})
+
+</script>
+</head>
+<body>
+<h1>04_car</h1>
+<div id="wrapper">
+	<div id="boxs"></div>
+	<img src="imgs/car.jpg" alt="" />
+</div>
+</body>
+</html>

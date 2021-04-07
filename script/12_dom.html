@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>12_dom</title>
+<style>
+div{
+	width:100px;
+	height: 100px;
+	margin: 50px;
+	background: #ff0;
+
+}
+.rrr{
+	color: #f00;
+	background : #0ff;
+	border: 5px solid #000;
+}
+
+</style>
+</head>
+<body>
+<h1>12_dom</h1>
+<div id="box1">bb1</div>
+<div id="box2" class="rrr">bb2</div>
+<div id="box3">bb3</div>
+
+<script>
+	//문서에서 id : "box3" 요소를 box변수로 받음 
+	var box = document.getElementById("box3")
+	console.log(box)
+
+	//box 변수 객체의 스타일을 변경
+	box.style.background = "#0f0"
+	
+	console.log(box.innerHTML)
+	//text 노드 변경
+	box.innerHTML = '상자3번'
+	
+	box = document.getElementById("box2")
+	
+	//속성 가져오기
+	console.log(box.getAttribute("class") )
+	
+	//속성 삭제
+	box.removeAttribute("class")
+	
+	
+	//box = document.getElementById("box1")
+	//box.setAttribute("class","rrr")
+	
+	function boxChange(){
+		box = document.getElementById("box1")
+		box.setAttribute("class","rrr")
+	}
+	
+	//boxChange()
+	//setTimeout(boxChange, 5000)
+	
+	var curr = 1
+	
+	function boxInit(){
+		
+		for(var i = 1; i<=3 ; i++){
+			box = document.getElementById("box"+i)
+			box.removeAttribute("class")	
+		}
+	}
+	
+	function boxRoll(){
+		boxInit()
+		box = document.getElementById("box"+curr)
+		box.setAttribute("class","rrr")
+		
+		curr++
+		if(curr > 3)
+			curr=1
+	}
+	
+	setInterval(boxRoll, 1000)
+</script>
+</body>
+</html>

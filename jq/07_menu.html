@@ -1,0 +1,117 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+    .main{
+        width:200px;
+        height: 50px;
+        /* height: 170px; */
+        overflow: hidden;
+        
+    }
+    .main > .title{
+        width:200px;
+        height: 50px;
+        background: #0f0;
+        border: 1px solid #000;
+        box-sizing: border-box;
+        text-align: center;
+        line-height: 50px;
+        font-size: 30px;
+    }
+    .main > .sub{
+        width:150px;
+        height: 30px;
+        background: #ff0;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+        text-align: center;
+        line-height: 30px;
+        font-size: 16px;
+        margin-left: 20px;
+    }
+    
+    </style>
+<script src="../my_js/jquery-3.6.0.js"></script>
+<script src="../my_js/jquery-ui.min.js"></script>
+<script>
+    arr= [0,1,2]
+    openarr=4
+    bb=false
+    allclosed=false
+    // 
+    $(function(){
+        $(".main").click(function(){
+            
+            var opened=  $(this).index()-1 // 0 1 2
+            $(this).stop().animate({height:'170px'}, 500,'easeOutBounce')
+            console.log("열림"+(opened+1)+"번쨰")
+            //일단 강제로 열고.
+            //하나를 열면 나머지는 자동으로 닫힌다.
+            for (const n of arr) {
+                if(n!=opened){ // 다른놈이 열려있다면 일단 열어.
+                    // console.log(n!=opened)
+                    $('.main').eq(n).stop().animate({height:'50px'}, 500,'easeOutBounce')
+                    
+                    // allclosed=!allclosed
+                    // console.log("n:"+n)  
+                }else{
+                    console.log("다른놈 눌러서 열림.::"+(n+1)+"번쨰")
+                }
+            }
+                if(!bb&&(openarr==opened))
+                {bb=true
+                }
+                if(openarr==opened&&bb){ // 만약 펴져 있다면??
+                    if(!allclosed){
+                    $('.main').eq(opened).stop().animate({height:'50px'}, 500,'easeOutBounce')
+                    console.log("같은거 눌러서 닫힘.")}
+                    allclosed=!allclosed
+                    openarr=4
+                    // bb=false
+                    
+
+                    // bb=true
+                    // bb=true
+                }
+            console.log(openarr+"//"+opened+"//"+allclosed+"//"+bb)
+            openarr=opened
+
+		// alert("눌렀냐?")
+	})
+
+
+
+    })
+
+
+</script>
+<title>07_menu</title>
+</head>
+<body id="body">
+<h1>07_menu</h1>
+<div class="main">
+	<div class="title">회사소개</div>
+	<div class="sub">인사말</div>
+	<div class="sub">인사개</div>
+	<div class="sub">인사소</div>
+	<div class="sub">안사말</div>
+</div>
+<div class="main">
+	<div class="title">제품</div>
+	<div class="sub">니품</div>
+	<div class="sub">내품</div>
+	<div class="sub">그놈품</div>
+	<div class="sub">퍼품</div>
+</div>
+<div class="main">
+	<div class="title">고객센터</div>
+	<div class="sub">공지사항</div>
+	<div class="sub">일지사항</div>
+	<div class="sub">이지사항</div>
+	<div class="sub">삼지사항</div>
+</div>
+</body>
+</html>

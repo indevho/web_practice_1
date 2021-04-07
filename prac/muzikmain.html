@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        .main {
+            width: 200px;
+            height: 50px;
+            /* height: 170px; */
+            overflow: hidden;     
+            border-radius: 10px 1px black;}
+
+        div {
+            display: inline-block;
+        }
+
+        header {
+            position: relative;
+            flex: left;
+            height: 80px;
+            border-bottom: 3px solid;
+        }
+
+        #tophead {
+            position: absolute;
+            /* clear: both; */
+            left: 50%;
+            margin-left: -400px;
+        }
+
+        .main>.title {
+            width: 200px;
+            height: 50px;
+            background: none;
+            color: gray;
+            border: 1px solid #000;
+            box-sizing: border-box;
+            text-align: center;
+            line-height: 50px;
+            font-size: 25px;
+            display: inline-block;
+            z-index: 3;
+        }
+        h1 {
+            text-align: center;
+            line-height: 50px;
+            color: #ddd;
+        }
+
+        #headersection {
+            left: 20%;
+            width: 60%;
+            box-sizing: border-box;
+            /* border: 1px dashed white; */
+            position: absolute;
+            background-image: url("../ppp/mainlogo.png");
+            background-size: 50px;
+            background-repeat: no-repeat;
+            background-position: 35% 5%;
+            border-bottom: none;
+            /* line-height: 30px; */
+        }
+        #headerbackground{
+            /* left: 20%; */
+            width: 100%;
+            height: 402px;
+            opacity: 0.9;
+            box-sizing: border-box;
+            /* border: 1px solid; */
+            position: absolute;
+            background: linear-gradient(-180deg, rgb(15, 26, 35), rgba(255, 255, 255, 0.2));
+
+        }
+        #menudetail{
+            position:absolute;
+            left: 20%;
+            top:10%;
+            /* width: 60%; */
+            /* height: 60px; */
+            line-height: 60px;
+            margin-top: 120px;
+            border: 1px solid;
+            background: #222;
+            overflow: hidden;
+
+
+          
+        }
+         .movingwrapper {
+            margin-top: 83px;
+            width: 100%;
+            height: 407px;
+            position: absolute;
+            overflow: hidden;
+        }
+
+        .movingitem {
+            /* top: 80px; */
+            /* margin-top: 83px; */
+            box-sizing: border-box;
+            border: 3px solid;
+            position: absolute;
+            width: 500%;
+            height: 400px;
+            left: 0px;
+            /* overflow: hidden; */
+        }
+        .menus{
+            margin-top: 20px;
+        }
+        .minim:nth-of-type(1){
+            margin-left: 5px;
+        }
+        .minim{
+            margin-left: 40px;
+            /* margin-top: 80px; */
+            /* position: relative; */
+            padding: 10px;
+
+            
+        }
+    </style>
+    <script src="../my_js/jquery-3.6.0.js"></script>
+    <script src="../my_js/jquery-ui.min.js"></script>
+    <script>
+
+    </script>
+    <script src="../my_js/muzikmain.js">
+    </script>
+    <title>Movie</title>
+</head>
+
+<body class="body">
+    <!-- <h1>Movie</h1> -->
+
+    <header> <a id=tophead href="https://www.lottecinema.co.kr/NLCHS#none"><img src="../ppp/tophead.jpg" alt=""></a>
+    </header>
+    <div id='headerbackground'></div>
+    <div id="headersection">
+
+        <h1 class="logo">Muzik Cinema</h1>
+        <div class="menus">
+
+            <div class="main">
+                <div class="title">영화</div>
+                <div class="sub">123</div>
+                <div class="sub">123</div>
+                <div class="sub">123</div>
+            </div>
+            <div class="main">
+                <div class="title">극장</div>
+                <div class="sub">123</div>
+                <div class="sub">123</div>
+                <div class="sub">123</div>
+                <div class="sub">123</div>
+            </div>
+            <div class="main">
+                <div class="title">날짜</div>
+                <div class="sub">4월17일</div>
+                <div class="sub">4월17일</div>
+                <div class="sub">4월17일</div>
+                <div class="sub">4월17일</div>
+            </div>
+            <div class="main">
+                <div class="title">시간</div>
+                <div class="sub">11:00</div>
+                <div class="sub">11:00</div>
+                <div class="sub">11:00</div>
+                <div class="sub">11:00</div>
+            </div>
+
+        </div>
+
+
+    </div>
+    <div id="menudetail">
+
+
+
+        <a class="minim" href="">123</a>
+        <a class="minim" href="">123</a>
+        <a class="minim" href="">123</a>
+        <a class="minim" href="">123</a>
+
+
+    </div>
+    
+
+
+
+</body>
+
+</html>

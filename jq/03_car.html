@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car</title>
+    <style>
+        *{
+	margin:0;
+	padding:0;
+}
+#wrapper{
+	width: 900px;
+	height: 600px;
+	margin:auto;
+    border: 1px solid #aaa;
+    background-image: url(imgs/car.jpg);
+    background-size: 900px 600px;
+    background-repeat: no-repeat;
+    display: inline-block;
+}
+#wrapper >div{
+	width: 150px;
+	height: 150px;
+    box-sizing: border-box;
+	/* margin:auto; */
+    border: 2px solid rgb(36, 39, 207);
+    background: red;
+    float: left;
+    /* opacity: 0.5; */
+}
+
+    </style>
+    
+
+<script src="../myjs/jquery-3.6.0.js"></script>
+<script>
+$(function(){
+    // 기본 구조  =>> 소스 / 리스너 / 액션.
+
+    // 객체를 만들어 집어 넣으려는 그림. append sth.
+    var wrapper = $('#wrapper')
+    wrapper.attr('display','inline')
+    var img=$('<img>')
+    // img.attr('src','imgs/car.jpg')
+    wrapper.append(img)
+    for(var i=1; i<=24;i++){
+        var dd0=$('<div></div>')
+        dd0.attr('class','box'+i)
+        dd0.attr('id','rec'+i)
+        dd0.attr('background','red')
+        $("#wrapper").append(dd0)
+        
+    }
+    //마우스 변경하면 먼일이 일어나게 하고프다.
+    $("#wrapper > div").mouseover(function(){
+                // alert("마우스올림") // '' ""  상관없음
+                // console.log($(this)+"::child1:mouseover")
+                // console.log($(this))
+                $(this).css('opacity','0.0')
+                $(this).remove()
+                var aa =  wrapper.children;
+                 console.log(aa)
+
+        //  .on ( 액션, 반응)
+        //   .액션 ( function 반응정의)
+        // 두 방식이 있다.
+        // 용도. 후자는 문자열로 구문을 받아서 좀 편하게 하고 싶을떄 쓴다. 
+        // $("#wrapper > div").eq(4).css({background: '#fa0'})
+    })
+    
+    // function a(){
+    //     var dd1=$('<div></div>')}
+    //         a()
+    
+    
+})
+
+
+
+
+
+</script>
+</head>
+<body>
+    <h1>CAR</h1>
+
+
+    <div id="wrapper"></div>
+    
+</body>
+</html>

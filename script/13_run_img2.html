@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>13_run_img2</title>
+
+<style>
+.big{
+	left : 100px;
+	top:200px;
+	width:198px;
+	height: 198px;
+	position: absolute;
+	border: 1px solid #ccc;
+	margin: 50px;
+}
+
+.big > img{
+	/*  opacity:0.2;  */
+	left : 0px;
+	top:0px;
+	width:198px;
+	height: 198px;
+	position: absolute;
+	z-index: 0;
+}
+.big > .now{
+	z-index: 1;
+}
+
+</style>
+</head>
+<body>
+<h1>13_run_img2</h1>
+<div class="big">
+	<script>
+		var ttt = ''
+		for(var i = 1; i<=12 ; i++){
+		
+			ttt += '<img id="pic'+i+'" src="../fff/diary_img/mm_'+i+'.png" />'
+				
+		}
+		document.write(ttt)
+	</script>
+</div>
+
+
+<script>
+	
+	var curr = 1
+	
+	function imgInit(){
+		
+		for(var i = 1; i<=12 ; i++){
+			var box = document.getElementById("pic"+i)
+			box.removeAttribute("class")	
+		}
+	}
+	
+
+	function run(){
+		imgInit()
+		var nowImg = document.getElementById("pic"+curr)
+		nowImg.setAttribute("class", "now")
+		
+		curr++
+		
+		if(curr>12)
+			curr = 1
+	}
+	
+	setInterval(run,100)
+		
+</script>
+
+
+</body>
+</html>

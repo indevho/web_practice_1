@@ -72,10 +72,10 @@
 
     function gg(){
         for(i=0;i<arr.length;i++) {
-                if( ((arr[i].left+arr[i].xsp)<7) || ((arr[i].left+arr[i].xsp)>563) ){
+                if( ((arr[i].left+arr[i].xsp)<-10) || ((arr[i].left+arr[i].xsp)>563) ){
                     arr[i].xsp *= -1
                 }
-                if(((arr[i].top+arr[i].ysp)<7) || ((arr[i].top+arr[i].ysp)>563) ){
+                if(((arr[i].top+arr[i].ysp)<-10) || ((arr[i].top+arr[i].ysp)>555) ){
                     arr[i].ysp *= -1
                 }
                 arr[i].left = arr[i].left+ arr[i].xsp

@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>05_animate</title>
+<style>
+.box{
+	left:0px;
+	top:0px;
+	position: relative;
+	width: 100px;
+	height: 100px;
+	background: #ff0;
+	border: 1px solid #000;
+}
+
+</style>
+<script src="../myjs/jquery-3.6.0.js"></script>
+<script>
+$(function(){
+	//$(".box").css({left:"400px"})
+	//$(".box").animate({left:"400px",  top:"300px"},500)
+	//$(".box").animate({top:"300px"},500)
+	
+	
+				
+	$(".start").click(function(){
+		console.log( ($(this).index()-1)/3 )
+		$(".box").eq( ($(this).index()-1)/3 ).animate({left:"400px"},1500)
+		.animate({top:"300px"},1500)
+		.animate({width:"300px"},2000)
+		//.animate({height:"300px", left:"0px"},1000)
+	})
+	
+	$(".stop").click(function(){
+		
+		// $(".box").stop()
+        // $(".box").eq($(this).attr("bbb")).stop()  // 방식 1
+        const no = eval($(this).attr("bbb")) 
+        switch(no){      //방식 2 Switch : 여전히 길다.
+            case 0:
+				$(".box").eq(0).stop(true, true)
+                //(method) JQuery.stop(clearQueue?:  다음동작 스톱시킬꺼지? //다음 내용도 스톱이지? 
+                //boolean, jumpToEnd?: boolean): 다음 내용 시작 전까지 점프할꺼지?  // 다음 내용이고뭐고 지금 멈출꺼지?
+                // JQuery (+1 overload)
+			case 1:
+				$(".box").eq(1).stop(true, false) // 얘가 찐. 제일 많이 쓴다. 
+                                                    // 다음내용진행 하지마. + 지금동작 마무리 하기전이지만 스탑해.
+			case 2:
+				$(".box").eq(2).stop(false, true)
+			case 3:
+				$(".box").eq(3).stop(false,false) // 이게 디폴트.
+        }
+
+	})
+})
+
+</script>
+</head>
+<body>
+<h1>05_animate</h1>
+<button class="start">start</button>
+<button class="stop" bbb="0">stop</button>
+<div class="box">box1</div>
+
+<button class="start">start</button>
+<button class="stop" bbb="1">stop</button>
+<div class="box">box2</div>
+
+<button class="start">start</button>
+<button class="stop" bbb="2">stop</button>
+<div class="box">box3</div>
+
+<button class="start">start</button>
+<button class="stop" bbb="3">stop</button>
+<div class="box">box4</div>
+</body>
+</html>

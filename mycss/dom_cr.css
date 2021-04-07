@@ -1,0 +1,19 @@
+@charset "utf-8";
+
+#arr{
+    border:1px solid #000;
+    padding : 30px;
+    margin:30px;
+ 
+ }
+ #arr > div{
+    border:1px solid #ccc;
+    padding : 30px;
+    margin:30px;
+    width:300px;
+    height:30px;
+    line-height:30px;
+    background: #ff0;
+    display: flex;
+    justify-content: space-between;
+ }

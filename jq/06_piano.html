@@ -1,0 +1,68 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>06_piano.html</title>
+    <style>
+        #wrapper>div{
+            width: 100px;
+            height: 100px;
+            /* flex: auto; */
+            float: none;
+        }
+    </style>
+    <script src ="../myjs/jquery-3.6.0.js"></script>
+    <!-- 기져오는 위치도 중요하다  ui 는 아래쪽에 위치해야 한다!! -->
+    <script src ="../myjs/jquery-ui.min.js"></script>
+    <script>
+
+        $(function(){
+            const ccArr= ['#f00','#fa0','#ff0','#0f0','#00f','#36b','#f0f' ]
+          
+            for( let cc of ccArr){
+                cnt1=0
+                
+                var dd= $("<div></div>")
+                dd.css({background:cc})
+                $("#wrapper").append(dd)
+                // dd.mouseover(function(){
+                //     $(this).animate({width:"600px"},200)
+                // })
+                // dd.mouseout(function(){
+                //     $(this).animate({width:"100px"},200)
+                // })
+
+                // hover!!!!!
+                /*(method) JQuery.hover(handlerInOut: (eventObject: JQueryEventObject) => any): JQuery (+1 overload)*/
+                function a(){$(this).animate({width:"100px"},2200,'easeInCubic')}
+                dd.hover(function(){ //over
+                    $(this).stop().animate({width:"1100px"},2200,'easeOutCubic')
+                    console.log(cnt1++)
+                    setTimeout(() => {
+                        a()
+                    }, 2200);
+                }
+                ,function(){ //out
+                    $(this).stop().animate({width:"100px"},2200,'easeInCubic')
+                    console.log(cnt1--)
+                })
+                // 문제 잠잠해지지가 않는다. 
+                //  stop. 기존 애니메이션에 대한 걸 멈추게하고. // 쌍쌍으로 stop  을 붙여 주어야 한다.
+                // easing. 이란?????
+
+                // 속도 변화에 관련된 함수  easing. 이라는 것이 있다.
+
+            }
+
+        })
+    </script>
+</head>
+<body>
+    <h1>06_piano</h1>
+    <div id="wrapper"></div>
+</body>
+</html>

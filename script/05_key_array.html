@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>05_key_array</title>
+<style>
+	.member{
+		border: 1px solid #aaa;
+		margin:10px;
+		padding:10px;
+		clear: both;
+		height: 40px;
+	}
+	
+	.first > div:first-of-type{
+		font-size: 20px;
+	}
+	
+	.grade0{
+		background: #f00;
+	}
+	.grade1{
+		background: #fa0;
+	}
+	.grade2{
+		background: #ff0;
+	}
+	.grade3{
+		background: #0f0;
+	}
+	.grade4{
+		background: #00f;
+	}
+	
+	.member > div{
+		border: 1px solid #aaa;
+		margin:5px;
+		padding:5px;
+		float: left;
+		width:100px;
+		height: 30px;
+		box-sizing: border-box;
+	}
+
+
+</style>
+</head>
+<body>
+<h1>05_key_array</h1>
+
+<script>
+var arr = {red:"빨강", blue:"파랑",green:"파랑", red:"븕은색"}
+
+
+document.write("arr:"+arr+"<br>")
+console.log(arr)
+document.write("arr[0]:"+arr[0]+"<br>")
+document.write("arr['red']:"+arr['red']+"<br>")
+document.write("arr.red:"+arr.red+"<br>")
+
+
+for(i in arr){
+	//document.write("arr:"+arr.i+"<br>")
+	document.write("arr["+i+"]:"+arr[i]+"<br>")
+}
+
+document.write("'red' in arr:"+('red' in arr)+"<br>")
+
+delete arr['green']
+console.log(arr)
+
+
+var arr2 = new Object()
+arr2.name = '정우성'
+arr2.age = 51
+arr2.marriage = false
+console.log(arr2)
+
+for(i in arr2){
+	//document.write("arr:"+arr.i+"<br>")
+	document.write("arr2["+i+"]:"+arr2[i]+"<br>")
+}
+
+
+/*  입력 데이터
+ 
+ 이름 	국어 영어 수학 lol
+ 장동건 	78 	77 	76  	
+ 장서건 	88 	87 	86 	88 	
+ 장남건 	58 	57 	56  	
+ 장중건 	98 	97 	96  	
+ 북두신건 68 	67 	66 	63 	
+ 
+ 
+ 
+ 이름 	성별 국어 영어 수학 lol 총점 평균 	등급 등수
+ 장동건 	여자 78 	77 	76  	231 77 		미 	3
+ 장서건 	남자 88 	87 	86 	88 	349 87.25 	우 	2
+ 장남건 	여자 58 	57 	56  	171 57 		가 	5
+ 장중건 	여자 98 	97 	96  	291 97 		수 	1
+ 북두신건 남자 68 	67 	66 	63 	264 66 		양 	4
+ 
+ */
+
+ var studs = [
+	 {name:'장동건', jum:[78,77,76]},
+	 {name:'장서건', jum:[88,87,86,88]},
+	 {name:'장남건', jum:[58,57,56]},
+	 {name:'장중건', jum:[98,97,96]},
+	 {name:'북두신건', jum:[68,67,66,63]}
+ ]
+
+ const grArr = "수,우,미,양,가".split(",")
+ for(i in studs){
+	var st = studs[i]
+	st.tot = 0
+	
+	for(k in st.jum){
+		st.tot += st.jum[k]
+	}
+	st.gender =  ["여","남"][st.jum.length-3]
+	st.avg = st.tot / st.jum.length
+	st.grade = ["가","가","가","가","가","가","양","미","우","수","수"][ Math.floor(st.avg/10) ]
+	st.grClass = grArr.indexOf(st.grade)
+ }
+ 
+ for(i in studs){
+	 var me = studs[i]
+	 me.rank = 1
+	 for(y in studs){
+		 var you = studs[y]
+		 if(me.avg < you.avg)
+			 me.rank++
+	 }
+ }
+ const title = "name,gender,jum,tot,avg,grade,rank".split(",")
+ //document.write(title)
+ for(i in studs){
+	 
+	 
+	 
+	 const st = studs[i]
+	 
+	 console.log(st )
+	 var ccc = " "
+	 
+	 if(st.rank==1)
+		 ccc = " first"
+	 
+	 var ttt = "<div class='member grade"+st.grClass+ccc+"'>"
+	 
+	 for(t in title){
+		ttt+="<div>"+st[title[t]]+"</div>"
+	 }
+	 //st['name']+','+st.gender +','+st.jum+','+st.tot+','+st.avg+','+st.grade+','+st.rank+"<br>"
+	 ttt+="</div>"
+	 document.write(ttt)
+ }
+
+</script>
+</body>
+</html>

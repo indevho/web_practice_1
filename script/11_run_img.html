@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>11_run_img</title>
+
+<style>
+/* .big{
+	left : 100px;
+	top:200px;
+	width:198px;
+	height: 198px;
+	position: absolute;
+	border: 1px solid #ccc;
+	margin: 50px;
+}
+
+.big > img{
+	 opacity:0.2; 
+	left : 0px;
+	top:0px;
+	width:198px;
+	height: 198px;
+	position: absolute;
+	z-index: 0;
+}
+.big > .now{
+	z-index: 1;
+} */
+
+</style>
+</head>
+<body>
+
+<script>
+	
+	var curr = 1
+
+	function run(){
+		document.write('<link href="../my_css/run.css" rel="stylesheet">')
+		var ttt = '<div class="big">'
+		for(var i = 1; i<=12 ; i++){
+			
+			var cc = ""
+			if(curr == i)
+				cc = " class = 'now' "
+			ttt += '<img '+cc+' src="../fff/diary_img/mm_'+i+'.png" />'
+			
+		}
+		ttt += '</div>'
+		document.write(ttt)
+		curr++
+		if(curr>12)
+			curr=1
+	}
+	
+	//run()
+	
+	setInterval(run,30)
+	
+	
+</script>
+
+
+</body>
+</html>

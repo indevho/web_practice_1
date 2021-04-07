@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>10_functions</title>
+</head>
+<body>
+<h1>10_functions</h1>
+<script>
+/*var rr = alert("경고경고")
+document.write("rr:"+rr+"<br>")
+rr = confirm("할까요? 말까요?")
+document.write("rr:"+rr+"<br>")
+*/
+var ttt = "1234 + 5678"
+document.write(ttt+":"+eval(ttt)+"<br>")
+
+ttt = "123.456"
+
+document.write((ttt+100)+":"+(parseInt(ttt)+100)+"<br>")
+document.write((ttt+100)+":"+(parseFloat(ttt)+100)+"<br>")
+
+
+document.write(isNaN(1234)+":"+isNaN("1234")+"<br>")
+document.write(isNaN("1,234.456")+":"+isNaN("asdf")+"<br>")
+
+function aaa(){
+	//document.write("aaa() 실행")
+	console.log("aaa() 실행")
+}
+
+setTimeout(aaa, 3000)
+
+var i = 0
+function bbb(){
+	//document.write("aaa() 실행")
+	console.log("bbb() 실행", i)
+	i++
+}
+
+
+function gogStop(){
+	clearInterval(gogo)
+}
+
+setTimeout(bbb, 3000)
+
+var gogo = setInterval(bbb, 1000)
+
+
+setTimeout(gogStop, 10000)
+</script>
+</body>
+</html>
